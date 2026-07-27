@@ -1,0 +1,63 @@
+<svg viewBox="0 0 680 400" width="680" height="400" xmlns="http://www.w3.org/2000/svg" style="font-family:monospace;background:#f8fafc;border-radius:12px">
+  <text x="340" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">plan  --  Education &amp; Career Roadmap</text>
+
+  <!-- Root node -->
+  <rect x="265" y="48" width="150" height="36" rx="8" fill="#0071e3"/>
+  <text x="340" y="70" text-anchor="middle" font-size="11" fill="white" font-weight="bold">plan/</text>
+
+  <!-- Dashed lines from root -->
+  <line x1="310" y1="84" x2="110" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="335" y1="84" x2="300" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="350" y1="84" x2="450" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="370" y1="84" x2="590" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- index.html -->
+  <rect x="30" y="140" width="160" height="40" rx="8" fill="#fbbf24"/>
+  <text x="110" y="158" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="bold">index.html</text>
+  <text x="110" y="172" text-anchor="middle" font-size="9" fill="#64748b">the whole plan, one page</text>
+
+  <!-- README -->
+  <rect x="240" y="140" width="120" height="40" rx="8" fill="#e2e8f0"/>
+  <text x="300" y="158" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="bold">README.md</text>
+  <text x="300" y="172" text-anchor="middle" font-size="9" fill="#64748b">overview</text>
+
+  <!-- CLAUDE.md -->
+  <rect x="395" y="140" width="120" height="40" rx="8" fill="#e2e8f0"/>
+  <text x="455" y="158" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="bold">CLAUDE.md</text>
+  <text x="455" y="172" text-anchor="middle" font-size="9" fill="#64748b">agent notes</text>
+
+  <!-- roadmap -->
+  <rect x="530" y="140" width="120" height="40" rx="8" fill="#e2e8f0"/>
+  <text x="590" y="158" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="bold">roadmap.md</text>
+  <text x="590" y="172" text-anchor="middle" font-size="9" fill="#64748b">open actions</text>
+
+  <!-- section band under index.html -->
+  <line x1="110" y1="180" x2="110" y2="212" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <rect x="30" y="212" width="620" height="30" rx="8" fill="#818cf8"/>
+  <text x="340" y="231" text-anchor="middle" font-size="10" fill="white" font-weight="bold">sections: School · Path · Finance Track · Step 0 · Cost · Funding · Income · Salary · Net Worth · Next Steps</text>
+
+  <!-- pipeline -->
+  <text x="340" y="272" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">the actual sequence</text>
+
+  <rect x="30" y="288" width="130" height="42" rx="8" fill="#34d399"/>
+  <text x="95" y="305" text-anchor="middle" font-size="10" fill="#064e3b" font-weight="bold">KPU MATQ</text>
+  <text x="95" y="320" text-anchor="middle" font-size="9" fill="#065f46">Pre-Calc 12 (free)</text>
+
+  <rect x="190" y="288" width="130" height="42" rx="8" fill="#34d399"/>
+  <text x="255" y="305" text-anchor="middle" font-size="10" fill="#064e3b" font-weight="bold">SFU CS BSc</text>
+  <text x="255" y="320" text-anchor="middle" font-size="9" fill="#065f46">calc + physics yr 1</text>
+
+  <rect x="350" y="288" width="150" height="42" rx="8" fill="#34d399"/>
+  <text x="425" y="305" text-anchor="middle" font-size="10" fill="#064e3b" font-weight="bold">Beedie Finance minor</text>
+  <text x="425" y="320" text-anchor="middle" font-size="9" fill="#065f46">declare end of yr 2</text>
+
+  <rect x="530" y="288" width="120" height="42" rx="8" fill="#f8fafc" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="590" y="305" text-anchor="middle" font-size="10" fill="#065f46" font-weight="bold">MSc Finance</text>
+  <text x="590" y="320" text-anchor="middle" font-size="9" fill="#64748b">optional, decide later</text>
+
+  <line x1="160" y1="309" x2="188" y2="309" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="320" y1="309" x2="348" y2="309" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="500" y1="309" x2="528" y2="309" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <text x="340" y="362" text-anchor="middle" font-size="9" fill="#64748b">static page, no build step — open index.html</text>
+</svg>
