@@ -30,3 +30,27 @@ upgrading. KPU MATQ is free and continuous-intake.
 
 ## Roadmap
 See `roadmap.md` in this repo root.
+
+## Public mirror
+`docs/index.html` is a **redacted** copy of `index.html` — the Step 0 (transcript
+grades), Disability Funding, Income While Studying, Other Programs, and Monthly
+Expenses sections are stripped, along with every PWD/StudentAid/RDSP source link.
+It's mirrored to the public repo `nulljosh/plan-site`, served at
+https://heyitsmejosh.com/plan-site/ (this repo is private, and GitHub Pages isn't
+available on private repos on the free plan).
+
+Rebuild it after editing `index.html`:
+```
+python3 - <<'PY'
+import re
+s = open('index.html').read()
+drop = ['Step 0 —','Disability Funding','Income While Studying',
+        'Other Programs Worth Checking','Monthly Expenses']
+parts = re.split(r'(?=  <div class="glass")', s)
+open('docs/index.html','w').write(''.join(
+    p for p in parts if not any(d in p[:400] for d in drop)))
+PY
+```
+Then re-strip the stray disability lines in Next Steps/Sources and copy
+`docs/index.html` into the `plan-site` repo. **Never** push the root `index.html`
+to `plan-site` — it has medical and income detail.
