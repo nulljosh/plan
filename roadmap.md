@@ -19,3 +19,6 @@
 
 ## Maybe
 - [ ] Verify the Beedie minor course list against the current SFU calendar (linked source is the 2026 spring calendar)
+
+## From Notes PDF (imported 2026-08-02)
+- [ ] Explore/research: BSc diploma versus Masters — worth digging into before/after the SFU CS BSc + Beedie minor path, timing and tradeoffs vs. the existing "Revisit MSc Finance after 1-2 years working" item above
