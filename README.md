@@ -31,3 +31,5 @@ closes the engineering door).
 ## Roadmap
 
 See `roadmap.md` in this repo root.
+
+[Technical whitepaper](WHITEPAPER.md)
