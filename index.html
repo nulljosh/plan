@@ -8,23 +8,11 @@
 <style>:root{color-scheme:light dark}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)}</style>
 </head>
 <body>
-<div style="--ink:var(--color-text); --muted:var(--color-secondary); --line:var(--color-hairline); max-width:var(--column-width); margin:0 auto; padding:2.5rem 1.5rem; line-height:1.55;">
-
   <style>
-    .glass { background:var(--color-bg2); border-top:var(--rule); padding:1.5rem 1.6rem 1.6rem; margin-bottom:1.6rem; }
-    .glass h2 { font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:var(--bulb-deep); margin:0 0 1rem 0; }
-    .glass p, .glass li { color:var(--color-soft); }
-    .glass strong { color:var(--color-text); }
-    .glass a { color:var(--color-text); text-decoration-thickness:2px; text-underline-offset:3px; }
-    table { width:100%; border-collapse:collapse; font-size:0.92rem; }
-    td, th { padding:0.65rem 0.5rem; vertical-align:top; }
-    td:first-child { padding-left:0; } td:last-child { padding-right:0; }
-    tr { border-bottom:1px solid var(--line); }
-  </style>
-
-  <style>
-    .hero{position:relative;text-align:center;padding:5rem 1.5rem 4rem;margin:-2.5rem -1.5rem 3rem;overflow:hidden;border-bottom:var(--rule)}
-    .months{position:absolute;inset:0;display:grid;grid-template-columns:repeat(24,1fr);gap:3px;padding:3px;z-index:0;opacity:.9}
+    .hero{position:relative;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 1.5rem;overflow:hidden;border-bottom:var(--rule);scroll-snap-align:start}
+    html{scroll-snap-type:y proximity}
+    .glass{scroll-snap-align:start;scroll-margin-top:1.5rem}
+    .months{position:absolute;inset:0;display:grid;grid-template-columns:repeat(15,1fr);gap:3px;padding:3px;z-index:0;opacity:.9}
     .months i{display:block;background:var(--color-hairline);animation:tick 1.2s var(--ease) both,sweep 6s ease-in-out infinite}
     .months i.done{background:var(--bulb)}
     .months i.now{background:var(--bulb);animation:tick 1.2s var(--ease) both,pulse 1.6s ease-in-out infinite}
@@ -49,6 +37,20 @@
     var g=document.getElementById('months'),h='';for(var i=0;i<120;i++)h+='<i class="'+(i<done?'done':i===done?'now':'')+'" style="animation-delay:'+(i*12)+'ms,'+(i*40)+'ms"></i>';g.innerHTML=h;
     document.getElementById('elapsed').textContent=done+' of 120 months in';})();
   </script>
+<div style="--ink:var(--color-text); --muted:var(--color-secondary); --line:var(--color-hairline); max-width:var(--column-width); margin:0 auto; padding:2.5rem 1.5rem; line-height:1.55;">
+
+  <style>
+    .glass { background:var(--color-bg2); border-top:var(--rule); padding:1.5rem 1.6rem 1.6rem; margin-bottom:1.6rem; }
+    .glass h2 { font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:var(--bulb-deep); margin:0 0 1rem 0; }
+    .glass p, .glass li { color:var(--color-soft); }
+    .glass strong { color:var(--color-text); }
+    .glass a { color:var(--color-text); text-decoration-thickness:2px; text-underline-offset:3px; }
+    table { width:100%; border-collapse:collapse; font-size:0.92rem; }
+    td, th { padding:0.65rem 0.5rem; vertical-align:top; }
+    td:first-child { padding-left:0; } td:last-child { padding-right:0; }
+    tr { border-bottom:1px solid var(--line); }
+  </style>
+
 
   <div class="glass">
     <h2>Timeline</h2>
