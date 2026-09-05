@@ -2,8 +2,8 @@
 
 ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fplan-black?logo=github)](https://github.com/nulljosh/plan)
 
-Education and career roadmap — SFU Computing Science, finished with a Beedie
-finance credential. One static page, no build step.
+Education and career roadmap for the next ten years: SFU Computing Science, then engineering,
+with a Beedie finance minor along the way. Live at plan.heyitsmejosh.com. One static page, no build step.
 
 ## Files
 

@@ -1,8 +1,7 @@
 # Roadmap
 
 ## Now
-- [ ] Call KPU Future Students (604-599-3030, Mon–Fri 1–4pm PT), book Upgrading Advisor appt
-- [ ] Register for Pre-Calc 12 (MATQ 1130) — free, continuous intake
+- [x] Pre-Calc 12 registered via LECSS (Sep 14 2026 – Jun 23 2027)
 - [ ] Apply for StudentAid BC disability status (CSG-D / CSG-DSE)
 - [ ] Open an RDSP
 
@@ -14,6 +13,8 @@
 - [ ] Declare the Beedie Finance minor (BUS 217/312 + electives)
 
 ## Later
+- [ ] Engineering after CS: pick SFU engineering bridge vs. professional master's (target 2033–36)
+- [ ] Late 30s: finance major or MSc Finance, decide after working
 - [ ] Revisit MSc Finance after 1–2 years working — needs GPA + GMAT/GRE
 - [ ] Target Kits/Chinatown move within 1–2 years of graduating
 
