@@ -10,7 +10,7 @@
 - [ ] Register calc + physics for year 1 (keeps engineering open, also feeds the finance track)
 
 ## Year 2
-- [ ] Declare the Beedie Finance minor (BUS 217/312 + electives)
+- [ ] Declare the Beedie Business minor (no Finance minor exists; BUS 200/251/311/340/341/401 + finance electives)
 
 ## Later
 - [ ] Engineering after CS: pick SFU engineering bridge vs. professional master's (target 2033–36)
@@ -19,7 +19,7 @@
 - [ ] Target Kits/Chinatown move within 1–2 years of graduating
 
 ## Maybe
-- [ ] Verify the Beedie minor course list against the current SFU calendar (linked source is the 2026 spring calendar)
+- [x] Verified 2026-09-05: Beedie has a Business minor, not a Finance minor
 
 ## From Notes PDF (imported 2026-08-02)
 - [ ] Explore/research: BSc diploma versus Masters — worth digging into before/after the SFU CS BSc + Beedie minor path, timing and tradeoffs vs. the existing "Revisit MSc Finance after 1-2 years working" item above
