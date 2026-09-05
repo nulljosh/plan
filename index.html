@@ -4,32 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plan</title>
-<link rel="stylesheet" href="https://heyitsmejosh.com/tokens.css">
-<style>:root{color-scheme:light dark}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)}</style>
+<link rel="stylesheet" href="https://heyitsmejosh.com/tokens-lovefrom.css">
+<style>:root{color-scheme:light dark}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:.9375rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+:root{--plan:#cc0633}
+::selection{background:var(--color-text);color:var(--color-bg)}</style>
 </head>
 <body>
   <style>
-    .hero{position:relative;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 1.5rem;overflow:hidden;border-bottom:var(--rule);scroll-snap-align:start}
+    .hero{position:relative;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 1.5rem;overflow:hidden;border-bottom:1px solid var(--color-hairline);scroll-snap-align:start}
     html{scroll-snap-type:y proximity}
     .glass{scroll-snap-align:start;scroll-margin-top:1.5rem}
-    .months{position:absolute;inset:0;display:grid;grid-template-columns:repeat(15,1fr);gap:3px;padding:3px;z-index:0;opacity:.9}
-    .months i{display:block;background:var(--color-hairline);animation:tick 1.2s var(--ease) both,sweep 6s ease-in-out infinite}
-    .months i.done{background:var(--bulb)}
-    .months i.now{background:var(--bulb);animation:tick 1.2s var(--ease) both,pulse 1.6s ease-in-out infinite}
+    .months{position:absolute;inset:0;display:grid;grid-template-columns:repeat(15,1fr);gap:2px;padding:2px;z-index:0}
+    .months i{display:block;background:var(--color-code-bg);animation:tick 1.2s var(--ease) both,sweep 6s ease-in-out infinite}
+    .months i.done{background:var(--plan)}
+    .months i.now{background:var(--plan);animation:tick 1.2s var(--ease) both,pulse 1.6s ease-in-out infinite}
     .hero > *:not(.months){position:relative;z-index:1}
     .hero p,.hero .kicker{background:var(--color-bg);display:inline-block;padding:.3em .6em}
     @keyframes tick{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
     @keyframes pulse{50%{opacity:.25}}
-    @keyframes sweep{0%,100%{background:var(--color-hairline)}8%{background:var(--bulb)}}
+    @keyframes sweep{0%,100%{background:var(--color-code-bg)}8%{background:var(--color-hairline-strong)}}
     .months i.done,.months i.now{animation-name:tick,pulse}
     @media(prefers-reduced-motion:reduce){.months i{animation:none!important}}
   </style>
   <div class="hero">
     <div class="months" id="months" aria-hidden="true"></div>
     <div class="kicker" style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">Joshua Trommel &middot; The next ten years</div>
-    <h1 style="margin:0.3rem 0 0 0; font-size:2.2rem; font-weight:800; letter-spacing:-0.02em;"><span style="background:var(--bulb); color:#000; padding:0 0.3em;">Plan</span></h1>
+    <h1 style="margin:0.3rem 0 0 0; font-size:2.25rem; font-weight:600; letter-spacing:-0.035em; line-height:1.1;">Plan</h1>
     <p style="margin:0.8rem auto 0 auto; max-width:520px; color:var(--muted);">Go to school for computer science, then engineering. Minor in finance, maybe major in it later. All of it inside my 30s. This page is the whole plan, kept current.</p>
-    <div class="kicker" id="elapsed" style="margin-top:.8rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);"></div>
+    <div class="kicker" id="elapsed" style="margin-top:.8rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--plan);"></div>
   </div>
   <script>
     // 120 squares = 120 months, Sep 2026 to Sep 2036. Elapsed ones light up in order.
@@ -37,18 +39,18 @@
     var g=document.getElementById('months'),h='';for(var i=0;i<120;i++)h+='<i class="'+(i<done?'done':i===done?'now':'')+'" style="animation-delay:'+(i*12)+'ms,'+(i*40)+'ms"></i>';g.innerHTML=h;
     document.getElementById('elapsed').textContent=done+' of 120 months in';})();
   </script>
-<div style="--ink:var(--color-text); --muted:var(--color-secondary); --line:var(--color-hairline); max-width:var(--column-width); margin:0 auto; padding:2.5rem 1.5rem; line-height:1.55;">
+<div style="--ink:var(--color-text); --muted:var(--color-secondary); --line:var(--color-hairline); max-width:var(--column-width); margin:0 auto; padding:2rem 1.25rem 6rem;">
 
   <style>
-    .glass { background:var(--color-bg2); border-top:var(--rule); padding:1.5rem 1.6rem 1.6rem; margin-bottom:1.6rem; }
-    .glass h2 { font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:var(--bulb-deep); margin:0 0 1rem 0; }
+    .glass { border-top:1px solid var(--color-hairline); padding:2.25rem 0 1.5rem; margin:0; }
+    .glass h2 { font-size:0.875rem; font-weight:500; color:var(--color-secondary); margin:0 0 1rem 0; letter-spacing:0; text-transform:none; }
     .glass p, .glass li { color:var(--color-soft); }
     .glass strong { color:var(--color-text); }
-    .glass a { color:var(--color-text); text-decoration-thickness:2px; text-underline-offset:3px; }
+    .glass a { color:var(--color-text); font-style:italic; text-decoration:none; transition:color .5s ease-out; } .glass a:hover { color:var(--color-secondary); }
     table { width:100%; border-collapse:collapse; font-size:0.92rem; }
-    td, th { padding:0.65rem 0.5rem; vertical-align:top; }
+    td, th { padding:0.6rem 0.5rem; vertical-align:top; }
     td:first-child { padding-left:0; } td:last-child { padding-right:0; }
-    tr { border-bottom:1px solid var(--line); }
+    tr { border-bottom:1px solid var(--color-hairline); }
   </style>
 
 
@@ -78,7 +80,7 @@
     <h2>Finance Track — SFU</h2>
     <p style="margin:0 0 0.8rem 0;">CS is the base. Finance is the multiplier — it's what turns a dev job into quant/fintech/trading pay. Two ways to add it, pick one at end of year 2:</p>
     <table>
-      <tr style="font-weight:700; border-bottom:var(--rule);"><td>Option</td><td>What it costs</td><td>Best if</td></tr>
+      <tr style="font-weight:700; border-bottom:1px solid var(--color-hairline-strong);"><td>Option</td><td>What it costs</td><td>Best if</td></tr>
       <tr>
         <td><strong>Finance minor</strong><br><span style="font-size:0.85rem; color:var(--muted);">Beedie, ~7 courses inside the BSc</span></td>
         <td>No extra years, no extra tuition beyond normal course load. Needs BUS 217/312 + electives.</td>
@@ -102,7 +104,7 @@
       📞 Call KPU Future Students — 604-599-3030
     </a>
     <p style="margin:0.6rem 0 0 0; font-size:0.82rem;"><strong>Phone hours:</strong> Mon–Fri, 1:00pm–4:00pm (Pacific)<br><strong>Office hours:</strong> Mon–Fri, 8:30am–4:30pm (Pacific) — closed statutory holidays only, open through summer.</p>
-    <p style="margin:0.7rem 0 0 0; font-size:0.82rem; color:var(--muted);">Cross-checked against SFU's official CS requirements: your English Studies 12 (87%), Science 12 (Anatomy &amp; Physiology 12 / Biology 12), and Law 12 already cover the "5 approved Grade 12 courses" rule. Pre-Calc 12 is the only mandatory piece left — nothing else required. <a href="https://www.sfu.ca/students/admission/admission-requirements/canadian-highschool/bc-yukon/computing-science.html" style="color:var(--color-text); text-decoration-color:var(--color-underline);">Source: SFU CS admission requirements</a></p>
+    <p style="margin:0.7rem 0 0 0; font-size:0.82rem; color:var(--muted);">Cross-checked against SFU's official CS requirements: your English Studies 12 (87%), Science 12 (Anatomy &amp; Physiology 12 / Biology 12), and Law 12 already cover the "5 approved Grade 12 courses" rule. Pre-Calc 12 is the only mandatory piece left — nothing else required. <a href="https://www.sfu.ca/students/admission/admission-requirements/canadian-highschool/bc-yukon/computing-science.html" style="color:var(--color-text);">Source: SFU CS admission requirements</a></p>
 
     <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--line);">
       <p style="margin:0 0 0.5rem 0; font-weight:700; font-size:0.9rem;">Optional: Head-Start Path (not required)</p>
@@ -152,7 +154,7 @@
   <div class="glass">
     <h2>Monthly Expenses: Now vs. Post-Grad</h2>
     <table>
-      <tr style="font-weight:700; border-bottom:var(--rule);"><td>Expense</td><td style="text-align:right;">At home</td><td style="text-align:right;">Kits/Chinatown</td></tr>
+      <tr style="font-weight:700; border-bottom:1px solid var(--color-hairline-strong);"><td>Expense</td><td style="text-align:right;">At home</td><td style="text-align:right;">Kits/Chinatown</td></tr>
       <tr><td>Rent</td><td style="text-align:right;">$0–400</td><td style="text-align:right;">$1,900–2,600</td></tr>
       <tr><td>Food</td><td style="text-align:right;">$300–400</td><td style="text-align:right;">$400–500</td></tr>
       <tr><td>Transit</td><td style="text-align:right;">$0</td><td style="text-align:right;">$0–130</td></tr>
@@ -248,18 +250,18 @@
   <div class="glass" style="margin-bottom:0;">
     <h2>Sources</h2>
     <ul style="margin:0; padding-left:1.2rem; font-size:0.85rem; word-break:break-word;">
-      <li>KPU Upgrading (MATQ) — <a href="https://www.kpu.ca/science/upgrading" style="color:var(--color-text); text-decoration-color:var(--color-underline);">kpu.ca/science/upgrading</a></li>
-      <li>KPU Math Qualifying course calendar — <a href="https://calendar.kpu.ca/courses-az/matq/" style="color:var(--color-text); text-decoration-color:var(--color-underline);">calendar.kpu.ca/courses-az/matq</a></li>
+      <li>KPU Upgrading (MATQ) — <a href="https://www.kpu.ca/science/upgrading" style="color:var(--color-text);">kpu.ca/science/upgrading</a></li>
+      <li>KPU Math Qualifying course calendar — <a href="https://calendar.kpu.ca/courses-az/matq/" style="color:var(--color-text);">calendar.kpu.ca/courses-az/matq</a></li>
       <li>KPU Future Students' Office — study@kpu.ca / 604-599-3030 (continuous intake, apply anytime)</li>
-      <li>SFU Computing Science admission &amp; tuition — <a href="https://www.sfu.ca/computing/prospective-students/undergraduate-students/admissions/tuition-and-scholarship.html" style="color:var(--color-text); text-decoration-color:var(--color-underline);">sfu.ca/computing</a></li>
-      <li>StudentAid BC disability funding — <a href="https://studentaidbc.ca/explore/grants-scholarships/canada-student-grant-services-and-equipment-students-disabilities" style="color:var(--color-text); text-decoration-color:var(--color-underline);">studentaidbc.ca (CSG-DSE)</a></li>
-      <li>Canada Student Grant for Students with Disabilities (CSG-D) — <a href="https://www.canada.ca/en/employment-social-development/services/education/grants/disabilities.html" style="color:var(--color-text); text-decoration-color:var(--color-underline);">canada.ca</a></li>
-      <li>Canada Disability Benefit — <a href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html" style="color:var(--color-text); text-decoration-color:var(--color-underline);">canada.ca/canada-disability-benefit</a></li>
-      <li>BC PWD disability assistance rates — <a href="https://www2.gov.bc.ca/gov/content/family-social-supports/services-for-people-with-disabilities/disability-assistance" style="color:var(--color-text); text-decoration-color:var(--color-underline);">gov.bc.ca/disability-assistance</a></li>
-      <li>BC Bus Pass / Transportation Supplement — <a href="https://www2.gov.bc.ca/gov/content/transportation/passenger-travel/buses-taxis-limos/bus-pass/people-with-disabilities" style="color:var(--color-text); text-decoration-color:var(--color-underline);">gov.bc.ca/bus-pass</a></li>
-      <li>RDSP grants and bonds — <a href="https://www.canada.ca/en/services/benefits/disability/disability-savings.html" style="color:var(--color-text); text-decoration-color:var(--color-underline);">canada.ca/disability-savings</a></li>
-      <li>SFU Beedie Finance minor — <a href="https://www.sfu.ca/students/calendar/2026/spring/programs/finance/minor.html" style="color:var(--color-text); text-decoration-color:var(--color-underline);">sfu.ca/calendar — finance minor</a></li>
-      <li>SFU Beedie MSc Finance — <a href="https://beedie.sfu.ca/programs/graduate/msc-finance" style="color:var(--color-text); text-decoration-color:var(--color-underline);">beedie.sfu.ca/msc-finance</a></li>
+      <li>SFU Computing Science admission &amp; tuition — <a href="https://www.sfu.ca/computing/prospective-students/undergraduate-students/admissions/tuition-and-scholarship.html" style="color:var(--color-text);">sfu.ca/computing</a></li>
+      <li>StudentAid BC disability funding — <a href="https://studentaidbc.ca/explore/grants-scholarships/canada-student-grant-services-and-equipment-students-disabilities" style="color:var(--color-text);">studentaidbc.ca (CSG-DSE)</a></li>
+      <li>Canada Student Grant for Students with Disabilities (CSG-D) — <a href="https://www.canada.ca/en/employment-social-development/services/education/grants/disabilities.html" style="color:var(--color-text);">canada.ca</a></li>
+      <li>Canada Disability Benefit — <a href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html" style="color:var(--color-text);">canada.ca/canada-disability-benefit</a></li>
+      <li>BC PWD disability assistance rates — <a href="https://www2.gov.bc.ca/gov/content/family-social-supports/services-for-people-with-disabilities/disability-assistance" style="color:var(--color-text);">gov.bc.ca/disability-assistance</a></li>
+      <li>BC Bus Pass / Transportation Supplement — <a href="https://www2.gov.bc.ca/gov/content/transportation/passenger-travel/buses-taxis-limos/bus-pass/people-with-disabilities" style="color:var(--color-text);">gov.bc.ca/bus-pass</a></li>
+      <li>RDSP grants and bonds — <a href="https://www.canada.ca/en/services/benefits/disability/disability-savings.html" style="color:var(--color-text);">canada.ca/disability-savings</a></li>
+      <li>SFU Beedie Finance minor — <a href="https://www.sfu.ca/students/calendar/2026/spring/programs/finance/minor.html" style="color:var(--color-text);">sfu.ca/calendar — finance minor</a></li>
+      <li>SFU Beedie MSc Finance — <a href="https://beedie.sfu.ca/programs/graduate/msc-finance" style="color:var(--color-text);">beedie.sfu.ca/msc-finance</a></li>
     </ul>
   </div>
 
