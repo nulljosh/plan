@@ -15,9 +15,9 @@
     html{scroll-snap-type:y proximity}
     .glass{scroll-snap-align:start;scroll-margin-top:1.5rem}
     .months{position:absolute;inset:0;display:grid;grid-template-columns:repeat(15,1fr);gap:2px;padding:2px;z-index:0}
-    .months i{display:block;background:var(--color-code-bg);animation:tick 1.2s var(--ease) both,sweep 6s ease-in-out infinite}
+    .months i{display:block;background:var(--color-code-bg);animation:tick 1.2s cubic-bezier(.16,1,.3,1) both,sweep 6s ease-in-out infinite}
     .months i.done{background:var(--plan)}
-    .months i.now{background:var(--plan);animation:tick 1.2s var(--ease) both,pulse 1.6s ease-in-out infinite}
+    .months i.now{background:var(--plan);animation:tick 1.2s cubic-bezier(.16,1,.3,1) both,pulse 1.6s ease-in-out infinite}
     .hero > *:not(.months){position:relative;z-index:1}
     .hero p,.hero .kicker{background:var(--color-bg);display:inline-block;padding:.3em .6em}
     @keyframes tick{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
