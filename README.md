@@ -1,35 +1,37 @@
+<img src="icon.svg" width="80">
+
 # Plan
 
 ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fplan-black?logo=github)](https://github.com/nulljosh/plan)
 
-Education and career roadmap for the next ten years: SFU Computing Science, then engineering,
-with a Beedie finance minor along the way. Live at plan.heyitsmejosh.com. One static page, no build step.
+I kept the next ten years in my head, then in a text file, then in a repo nobody could see. Now it's a page anyone can open: [plan.heyitsmejosh.com](https://plan.heyitsmejosh.com).
+
+## The plan
+
+School for computer science, then engineering. A finance minor along the way, maybe a major in my late 30s. All of it inside my 30s.
+
+| When | What |
+|------|------|
+| 2026 to 27 | Pre-Calculus 12 online through LECSS. The one admission gap. |
+| 2027 to 31 | SFU Computing Science BSc, Burnaby. Calc and physics in year 1, Beedie Finance minor declared end of year 2, co-op terms. |
+| 2031 to 33 | Work as a developer, ideally fintech or trading infrastructure. Decide on the MSc Finance. |
+| 2033 to 36 | Engineering: an SFU bridge or a professional master's, aiming at P.Eng eligibility. |
+| Late 30s | Optional finance major or MSc Finance. Done before 40. |
+
+Ruled out: UVic (not Lower Mainland), KPU (no real CS degree), BCIT (too vocational, closes the engineering door).
+
+## The page
+
+One HTML file. The hero is a grid of 120 squares, one per month of the ten years. The months already lived light up in blue, the current one pulses. Below it, the whole plan: school, the finance track, costs, funding, income while studying, salary bands, and a hand-plotted net-worth chart in inline SVG. It follows the portfolio's design tokens, so it looks like the rest of heyitsmejosh.com.
 
 ## Files
 
-- `index.html` — the whole plan. School choice, the Pre-Calc 12 gap, the finance
-  track, costs, disability funding, income while studying, salary progression, and
-  a net-worth projection chart (inline SVG, no chart library).
-- `roadmap.md` — open actions.
+- `index.html` is the entire site.
+- `roadmap.md` is what's still open.
+- `wrangler.toml` deploys it as static assets on Cloudflare. `npx wrangler deploy`.
 
-## The Plan
-
-| Stage | What |
-|-------|------|
-| Step 0 | **Pre-Calculus 12** via KPU MATQ upgrading — free, continuous intake. The only admission gap. |
-| Degree | **SFU Computing Science BSc**, Burnaby. Calc + physics year 1 to keep engineering optional. |
-| Finance | **Beedie Finance minor** (default — no extra years or tuition, declare end of year 2). |
-| Optional | **MSc Finance** at Beedie, ~12–16 months post-BSc. Decide after 1–2 years working. |
-
-Ruled out: UVic (not Lower Mainland), KPU (no real CS degree), BCIT (too vocational —
-closes the engineering door).
-
-## Project Map
+## Project map
 
 ![project map](architecture.svg)
-
-## Roadmap
-
-See `roadmap.md` in this repo root.
 
 [Technical whitepaper](WHITEPAPER.md)
