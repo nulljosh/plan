@@ -20,19 +20,24 @@
     .hint{position:absolute;bottom:1rem;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--color-secondary);z-index:1}
     .hint a{color:inherit;text-decoration:none;background:var(--color-bg);padding:.3em .6em}
     .glass{scroll-snap-align:start;scroll-margin-top:1.5rem}
+    .film{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--color-code-bg)}
+    .film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+    .film img.on{opacity:1;animation:kb 26s linear both}
+    .film::after{content:"";position:absolute;inset:0;background:var(--plan);opacity:.38;mix-blend-mode:multiply}
     .months{position:absolute;inset:0;display:grid;grid-template-columns:repeat(15,1fr);gap:2px;padding:2px;z-index:0}
-    .months i{display:block;background:var(--color-code-bg)}
-    .months i.done{background:var(--plan);animation:tick .6s cubic-bezier(.16,1,.3,1) both}
+    .months i{display:block;background:var(--color-bg);transition:background .7s ease}
+    .months i.done{background:rgba(0,116,217,.14)}
     .months i.now:not(.done){box-shadow:inset 0 0 0 2px var(--plan)}
     .year{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;font-size:clamp(9rem,42vw,26rem);font-weight:600;letter-spacing:-.06em;line-height:1;color:var(--color-text);opacity:.07;pointer-events:none;user-select:none}
-    .hero > *:not(.months):not(.year){position:relative;z-index:1}
+    .hero > *:not(.months):not(.year):not(.film){position:relative;z-index:1}
     .hero p,.hero .kicker{background:var(--color-bg);display:inline-block;padding:.3em .6em}
     #chapter{animation:fadein .5s ease-out both}
-    @keyframes tick{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+    @keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
     @keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-    @media(prefers-reduced-motion:reduce){.months i,#chapter{animation:none!important}}
+    @media(prefers-reduced-motion:reduce){.months i,#chapter,.film img{animation:none!important;transition:none!important}}
   </style>
   <div class="hero">
+    <div class="film" id="film" aria-hidden="true"><img src="film/precalc.jpg" alt="" decoding="async"><img src="film/sfu.jpg" alt="" decoding="async"><img src="film/beedie.jpg" alt="" decoding="async"><img src="film/dev.jpg" alt="" decoding="async"><img src="film/eng.jpg" alt="" decoding="async"><img src="film/gastown.jpg" alt="" decoding="async"></div>
     <div class="months" id="months" aria-hidden="true"></div>
     <div class="year" id="year" aria-hidden="true"></div>
     <div class="kicker" style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">Joshua Trommel &middot; The next ten years</div>
@@ -44,11 +49,12 @@
   </div>
   <script>
     // The hero is a time-lapse of the plan: 120 months, Sep 2026 to Sep 2036, played in ~24s and looped.
-    // Each month lights a square, the year ticks behind the text, and the chapter caption follows the timeline table.
+    // Each month opens a square onto that chapter's footage, the year ticks behind the text, and the caption follows the timeline table.
     (function(){
       var START=new Date(2026,8,1),now=new Date(),
           nowMonth=Math.max(0,Math.min(120,(now.getFullYear()-START.getFullYear())*12+now.getMonth()-START.getMonth())),
-          CHAPTERS=[[0,'Pre-Calculus 12 · LECSS'],[12,'SFU Computing Science · calc + physics'],[32,'Declare the Beedie Finance minor'],[60,'Developer · fintech or trading infra'],[84,'Engineering · toward P.Eng'],[120,'Done. Inside my 30s.']],
+          CHAPTERS=[[0,'Pre-Calculus 12 · LECSS'],[12,'SFU Computing Science · calc + physics'],[32,'Declare the Beedie Finance minor'],[60,'Developer · ship the apps, fintech pay'],[84,'Engineering · toward P.Eng'],[120,'Gastown. Inside my 30s.']],
+          film=document.getElementById('film').children,
           MS_PER_MONTH=200,HOLD=2500,
           g=document.getElementById('months'),yearEl=document.getElementById('year'),chapEl=document.getElementById('chapter'),
           cells=[],h='';
@@ -56,12 +62,13 @@
       g.innerHTML=h;cells=g.children;
       document.getElementById('elapsed').textContent=nowMonth+' of 120 months in';
 
-      var shown=-1,chapter='';
+      var shown=-1,chapter='',ci=-1;
       function frame(m){
         if(m===shown)return;
         for(var i=0;i<120;i++)cells[i].classList.toggle('done',i<m);
         yearEl.textContent=START.getFullYear()+Math.floor(m/12);
-        var c='';for(var k=0;k<CHAPTERS.length;k++)if(m>=CHAPTERS[k][0])c=CHAPTERS[k][1];
+        var c='',k2=0;for(var k=0;k<CHAPTERS.length;k++)if(m>=CHAPTERS[k][0]){c=CHAPTERS[k][1];k2=k;}
+        if(k2!==ci){ci=k2;for(var j=0;j<film.length;j++)film[j].classList.toggle('on',j===k2);}
         if(c!==chapter){chapter=c;chapEl.textContent=c;chapEl.style.animation='none';void chapEl.offsetWidth;chapEl.style.animation='';}
         shown=m;
       }
@@ -291,6 +298,7 @@
       <li>RDSP grants and bonds — <a href="https://www.canada.ca/en/services/benefits/disability/disability-savings.html" style="color:var(--color-text);">canada.ca/disability-savings</a></li>
       <li>SFU Beedie Finance minor — <a href="https://www.sfu.ca/students/calendar/2026/spring/programs/finance/minor.html" style="color:var(--color-text);">sfu.ca/calendar — finance minor</a></li>
       <li>SFU Beedie MSc Finance — <a href="https://beedie.sfu.ca/programs/graduate/msc-finance" style="color:var(--color-text);">beedie.sfu.ca/msc-finance</a></li>
+      <li>Hero photos, Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Vancouver_Public_Library_Level_9_Expansion_2018.jpg" style="color:var(--color-text);">GoToVan from Vancouver, Canada</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Academic-Quadrangle-SFU-Burnaby-British-Columbia-Canada-06-A.jpg" style="color:var(--color-text);">RestfulC401 (WinterforceMedia)</a> (CC0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Harbour_Centre_--_2022_--_1860.jpg" style="color:var(--color-text);">Dietmar Rabich</a> (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_Night_Skyline_(15141299159).jpg" style="color:var(--color-text);">Jerry Meaden from Surrey, British Columbia, Canada</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Lions_Gate_Bridge_(air).jpg" style="color:var(--color-text);">unknown author</a> (CC BY-SA 3.0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Gastown_Steam_Clock_--_2022_--_1836.jpg" style="color:var(--color-text);">Dietmar Rabich</a> (CC BY-SA 4.0)</li>
     </ul>
   </div>
 
