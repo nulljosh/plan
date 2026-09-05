@@ -8,6 +8,7 @@
 <meta property="og:title" content="Plan"><meta property="og:description" content="Ten years: computer science, engineering, finance. Kept current."><meta property="og:url" content="https://plan.heyitsmejosh.com">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="preload" as="image" href="film/precalc.jpg" fetchpriority="high">
 <link rel="stylesheet" href="https://heyitsmejosh.com/tokens-lovefrom.css">
 <style>:root{color-scheme:light dark}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:.9375rem;line-height:1.7;-webkit-font-smoothing:antialiased}
 :root{--plan:#0074D9}
@@ -30,19 +31,24 @@
     .hero h1,.hero .kicker{color:var(--ink)!important}
     .hero p,.hero .kicker,.hint a{background:var(--paper);color:var(--ink);display:inline-block;padding:.3em .6em;transition:background .6s,color .6s}
     .hero .year{color:var(--ink)}
+    .chapters{display:flex;gap:6px;margin-top:1.4rem;padding:0;border:0;background:none}
+    .chapters button{width:34px;height:14px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+    .chapters button::before,.chapters button::after{content:"";position:absolute;left:0;top:6px;height:2px;border-radius:1px;background:var(--ink);opacity:.3;width:100%}
+    .chapters button::after{opacity:1;width:calc(var(--p,0)*100%);transition:width .2s linear}
     #chapter{animation:fadein .5s ease-out both}
     @keyframes kb{from{scale:1}to{scale:1.08}}
     @keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
     @media(prefers-reduced-motion:reduce){#chapter,.film img{animation:none!important;transition:none!important}}
   </style>
   <div class="hero">
-    <div class="film" id="film" aria-hidden="true"><img src="film/precalc.jpg" alt="" decoding="async"><img src="film/sfu.jpg" alt="" decoding="async"><img src="film/beedie.jpg" alt="" decoding="async"><img src="film/dev.jpg" alt="" decoding="async"><img src="film/eng.jpg" alt="" decoding="async"><img src="film/gastown.jpg" alt="" decoding="async"></div>
+    <div class="film" id="film" aria-hidden="true"><img src="film/precalc.jpg" alt="" fetchpriority="high"><img src="film/sfu.jpg" alt="" decoding="async"><img src="film/beedie.jpg" alt="" decoding="async"><img src="film/dev.jpg" alt="" decoding="async"><img src="film/eng.jpg" alt="" decoding="async"><img src="film/gastown.jpg" alt="" decoding="async"></div>
     <div class="year" id="year" aria-hidden="true"></div>
     <div class="kicker" style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">Joshua Trommel &middot; The next ten years</div>
     <h1 style="margin:0.3rem 0 0 0; font-size:2.25rem; font-weight:600; letter-spacing:-0.035em; line-height:1.1;">Plan</h1>
     <p style="margin:0.8rem auto 0 auto; max-width:520px; color:var(--muted);">Go to school for computer science, then engineering. Minor in finance, maybe major in it later. All of it inside my 30s. This page is the whole plan, kept current.</p>
     <div class="kicker" id="elapsed" style="margin-top:.8rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--plan);"></div>
     <div class="kicker" id="chapter" style="margin-top:.4rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);"></div>
+    <div class="chapters" id="chapters" aria-label="Chapters"></div>
     <div class="hint"><a href="#timeline">Scroll</a></div>
   </div>
   <script>
@@ -55,9 +61,13 @@
           MS_PER_MONTH=200,HOLD=2500,
           film=document.getElementById('film').children,yearEl=document.getElementById('year'),chapEl=document.getElementById('chapter');
       document.getElementById('elapsed').textContent=nowMonth+' of 120 months in';
+      var bar=document.getElementById('chapters'),segs;
+      bar.innerHTML=CHAPTERS.slice(0,-1).map(function(c){return '<button type="button" title="'+c[1]+'"></button>';}).join('');segs=bar.children;
+      bar.addEventListener('click',function(e){var k=[].indexOf.call(segs,e.target);if(k>=0)t0=performance.now()-CHAPTERS[k][0]*MS_PER_MONTH;});
 
       var shown=-1,chapter='',ci=-1;
       function frame(m){
+        for(var q=0;q<segs.length;q++){var a=CHAPTERS[q][0],b=CHAPTERS[q+1][0];segs[q].style.setProperty('--p',Math.max(0,Math.min(1,(m-a)/(b-a))));}
         if(m===shown)return;
         yearEl.textContent=START.getFullYear()+Math.floor(m/12);
         var c='',k2=0;for(var k=0;k<CHAPTERS.length;k++)if(m>=CHAPTERS[k][0]){c=CHAPTERS[k][1];k2=k;}
@@ -76,7 +86,7 @@
       }
       if(matchMedia('(prefers-reduced-motion:reduce)').matches){frame(nowMonth);return;}
       var total=120*MS_PER_MONTH+HOLD,t0=performance.now();
-      (function loop(t){frame(Math.min(120,Math.floor(((t-t0)%total)/MS_PER_MONTH)));requestAnimationFrame(loop);})(t0);
+      (function loop(t){var e=t-t0;if(e>=total){t0=t;e=0;}frame(Math.min(120,Math.floor(e/MS_PER_MONTH)));requestAnimationFrame(loop);})(t0);
 
       // Parallax: the active shot leans toward the pointer, or with the phone's tilt.
       function lean(x,y){var s='translate('+(x*-24)+'px,'+(y*-16)+'px)';for(var j=0;j<film.length;j++)film[j].style.transform=s;}
