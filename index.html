@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plan</title>
+<script>document.documentElement.classList.add('js')</script>
 <meta name="description" content="Joshua Trommel's ten-year plan: SFU Computing Science, then engineering, with a Beedie business minor. One page, kept current.">
 <meta property="og:title" content="Plan"><meta property="og:description" content="Ten years: computer science, engineering, finance. Kept current."><meta property="og:url" content="https://plan.heyitsmejosh.com">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
@@ -12,7 +13,12 @@
 <link rel="stylesheet" href="https://heyitsmejosh.com/tokens-lovefrom.css">
 <style>:root{color-scheme:light dark}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:.9375rem;line-height:1.7;-webkit-font-smoothing:antialiased}
 :root{--plan:#0074D9}
-::selection{background:var(--color-text);color:var(--color-bg)}</style>
+::selection{background:var(--color-text);color:var(--color-bg)}
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+  html.js .reveal.in-view { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 <body>
   <style>
@@ -325,5 +331,26 @@
   </div>
 
 </div>
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.glass').forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  var yearEl = document.getElementById('year');
+  if (yearEl && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var ticking = false;
+    addEventListener('scroll', function(){
+      if (!ticking) {
+        requestAnimationFrame(function(){ yearEl.style.transform = 'translateY(' + (scrollY * 0.1) + 'px)'; ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>
