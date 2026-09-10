@@ -260,6 +260,8 @@
         for(var y=1;y<=MAXY;y++){v=v*(1+r)+(SAL[Math.min(y-1,SAL.length-1)]*1e3*TAX*p);out.push(v);if(v>=goal)break;}return out;}
       function fmt(n){return n>=1e12?'$'+(n/1e12).toFixed(1)+'T':n>=1e9?'$'+(n/1e9).toFixed(1)+'B':n>=1e6?'$'+(n/1e6).toFixed(1)+'M':'$'+Math.round(n/1e3)+'k';}
       var pts,X0=70,X1=650,Y0=280,Y1=20,logm;
+      // xy: plots a point in chart space. Linear goals (gi===0, $1M) use a straight 0..max scale.
+      // Bigger goals switch to log10 so early-year growth (near $0) is still visible next to a $1T finish line.
       function xy(i,v){var n=pts.length-1,x=X0+(X1-X0)*i/n,y=logm?Y0-(Y0-Y1)*Math.log10(Math.max(v,1e3)/1e3)/Math.log10(GOALS[gi][0]/1e3):Y0-(Y0-Y1)*v/Math.max(GOALS[gi][0],pts[n]);return [x,y];}
       function draw(){pts=model();logm=gi>0;var g=GOALS[gi],n=pts.length-1,hit=pts[n]>=g[0],h='';
         goals.childNodes.forEach(function(b,i){b.setAttribute('aria-pressed',i===gi);});
