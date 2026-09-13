@@ -10,8 +10,10 @@ projected. It is a document that happens to be a website.
 
 The plan has numbers in it — tuition, disability funding, income while
 studying, salary progression — and those numbers need a chart and a table, not
-prose. It also needs to be linkable and re-readable from a phone. A static page
-does both; a PDF does neither well and a spreadsheet hides the reasoning.
+prose. It also needs to be linkable and re-readable from a phone, since a real
+plan gets revisited, not read once and filed. A static page does both; a PDF
+does neither well and a spreadsheet hides the reasoning behind each number,
+which matters here as much as the numbers themselves.
 
 ## The Plan
 
@@ -36,13 +38,15 @@ door).
 The projection chart is inline SVG with the series values written directly in
 the markup. No chart library, no build step, no data file: with one chart that
 changes a few times a year, a dependency would be more maintenance than the
-markup it replaces.
+markup it replaces, and the whole page is meant to still work untouched a
+decade from now with no library to go stale.
 
 ## Privacy
 
 Static, no backend, no analytics. The page contains personal financial
-projections and is published deliberately, not incidentally — nothing is
-collected from anyone reading it.
+projections and is published deliberately, not incidentally, on the view that
+the plan is worth more shared than hidden — nothing is collected from anyone
+reading it.
 
 ## License
 
