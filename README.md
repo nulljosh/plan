@@ -6,6 +6,8 @@
 
 I kept the next ten years in my head, then in a text file, then in a repo nobody could see. Now it's a page anyone can open: [plan.heyitsmejosh.com](https://plan.heyitsmejosh.com).
 
+<img src="progress.svg" width="460">
+
 ## The plan
 
 School for computer science, then engineering. A business minor along the way, maybe a major in my late 30s. All of it inside my 30s.
