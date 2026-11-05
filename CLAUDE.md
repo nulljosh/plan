@@ -25,3 +25,17 @@ No Surrey: math and CPSC 1103 wait for Langley/online sections.
 - "Where we are" is the task list (Now / Next / Later / Done): move items as they happen, and
   update `#elapsed[data-next]` in the hero.
 - Numbers are cited; sources live in the footer drawer.
+
+## Next session: register at KPU (Mon Nov 9 2026)
+Paste this to Claude on Nov 9:
+
+> Registration for KPU Spring 2027 opened today. Open myKPU in Safari (I'll log in), go to
+> Register for Classes → Spring 2027 → Plans, load "Spring 2027 Online", Add All, and show me
+> the summary before I hit Submit. CRNs: 15645 ENGL 1100, 18519 MRKT 1199, 17480 DESN 1160,
+> 18415 ECON 1150, 17634 DESN 1240. If a section is full, waitlist it and suggest an online or
+> Langley swap (no Surrey). Then update the plan: move "Register at KPU" to Done, set the hero
+> `#elapsed[data-next]` to the next task (StudentAid BC), mark the KPU section Registered,
+> commit, push and deploy.
+
+After that: StudentAid BC (disability status) before Jan; last no-penalty drop Tue Jan 5;
+classes start Wed Jan 6; fees due Thu Jan 21.
