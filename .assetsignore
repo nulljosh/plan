@@ -1,4 +1,7 @@
 .git
+.gitignore
+.assetsignore
 *.md
 wrangler.toml
+.wrangler
 .asc

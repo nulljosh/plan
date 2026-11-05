@@ -2,7 +2,6 @@
 
 Joshua's ten-year plan, one static page at plan.jaybulb.com (Cloudflare Worker assets,
 `npx wrangler deploy`). Public on purpose, including grades and disability funding detail.
-`AGENTS.md` is a symlink to this file.
 
 ## The plan
 LECSS Pre-Calc 12 (Sep 2026 – Jun 2027) → KPU, online/Langley only (2027) → SFU Computing
