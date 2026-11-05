@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan · Brand kit</title>
+<meta name="description" content="The Plan design system: the A+ mark, colour, Plan Sans, the six chapter glyphs, and the components plan.jaybulb.com is built from.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="preload" href="../fonts/PlanSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../plan.css">
+</head>
+<body>
+<header class="nav" aria-label="Site"><div class="wrap">
+  <a class="nav-brand" href="../"><img src="icon.svg" alt="">Plan</a>
+  <nav class="nav-links" aria-label="Sections"><a href="#mark">Mark</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#glyphs">Glyphs</a><a href="#components">Components</a><a href="#rules">Rules</a></nav>
+  <a class="btn btn-solid" href="../">Back to the plan</a>
+</div></header>
+
+<main class="wrap">
+
+<section class="part" id="top">
+  <p class="label">Plan · Brand kit</p>
+  <h1 class="part-title">One page, one mark, one blue.</h1>
+  <p class="note">Plan is a Jaybulb landing like Talli or Kernel: the fleet tokens from <a href="https://jaybulb.com/tokens.css">jaybulb.com/tokens.css</a> (dark mode, type), overridden to plain white and off-white, then <a href="../plan.css">plan.css</a> on top. Everything below is rendered from that one stylesheet.</p>
+</section>
+
+<section class="part" id="mark">
+  <h2 class="part-title">Mark</h2>
+  <div class="sec">
+    <h3>The A+<small>App icon, favicon, mark</small></h3>
+    <p>An A+ — the grade the plan runs on, starting with Pre-Calc 12. White on Plan blue, drawn as paths so it never depends on a font. On paper it can also run as the dithered tile.</p>
+    <div class="marks">
+      <figure><img src="icon.svg" width="128" height="128" alt="Plan A+ app icon"><figcaption>icon.svg · 128</figcaption></figure>
+      <figure><img src="icon.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure>
+      <figure><img src="icon.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure>
+      <figure><img src="icon.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure>
+      <figure><div class="art g-mark" style="width:128px" role="img" aria-label="Dithered A+ tile"></div><figcaption>Art tile</figcaption></figure>
+    </div>
+    <p class="row"><a class="btn btn-ghost" href="icon.svg" download>icon.svg</a><a class="btn btn-ghost" href="icon-mono.svg" download>icon-mono.svg</a></p>
+  </div>
+</section>
+
+<section class="part" id="colour">
+  <h2 class="part-title">Colour</h2>
+  <div class="sec">
+    <h3>Palette<small>Light; dark follows the system</small></h3>
+    <ul class="swatches">
+      <li class="swatch" style="--c:var(--plan)"><i></i><b>Plan blue</b><code>--plan #2F6FB0</code></li>
+      <li class="swatch" style="--c:var(--plan-art)"><i></i><b>Plan art</b><code>--plan-art #A9CDEF</code></li>
+      <li class="swatch" style="--c:var(--color-bg)"><i></i><b>White</b><code>--color-bg #FFFFFF</code></li>
+      <li class="swatch" style="--c:var(--color-bg2)"><i></i><b>Off-white</b><code>--color-bg2 #F7F7F7</code></li>
+      <li class="swatch" style="--c:var(--color-text)"><i></i><b>Ink</b><code>--color-text</code></li>
+      <li class="swatch" style="--c:var(--color-secondary)"><i></i><b>Ink, secondary</b><code>--color-secondary</code></li>
+      <li class="swatch" style="--c:var(--color-hairline)"><i></i><b>Hairline</b><code>--color-hairline</code></li>
+      <li class="swatch" style="--c:var(--bulb)"><i></i><b>Bulb</b><code>--bulb #FFCA30</code></li>
+    </ul>
+    <p class="note">One accent. Blue marks what's live: the counter, the active nav item, status chips, link underlines, the picked card. Surfaces are white and off-white only. Bulb yellow is Jaybulb's, and only shows up as the footer rule and text selection.</p>
+  </div>
+</section>
+
+<section class="part" id="type">
+  <h2 class="part-title">Type</h2>
+  <div class="sec">
+    <h3>Plan Sans<small>fonts/PlanSans.woff2 · 99 KB</small></h3>
+    <p class="specimen xl">A+ in a year.</p>
+    <p class="specimen l">LECSS, KPU, SFU, UBC</p>
+    <p class="specimen m">Calculus, physics, programming — then engineering.</p>
+    <p>Plan Sans is Inter v4.1, an open font cut after San Francisco, renamed and tuned for this page. Round quotes and commas (“like this,”) and the tailed l (Illinois, 1lI) are baked in. Optical size follows the font size, so headlines get the tighter display cut and body text the open text cut, the way SF Display and SF Text split. Weights 100–900, Latin only.</p>
+    <div class="figs">
+      <small>Proportional</small><span>1,111 · $1,740 · 2028</span>
+      <small>Tabular</small><span class="t">1,111 · $1,740 · 2028</span>
+    </div>
+    <p class="note">Figures are proportional by default, so numbers in running text sit evenly. Tables and the chart switch to tabular so columns line up. Licensed under the SIL Open Font License; see <a href="../fonts/OFL.txt">OFL.txt</a>.</p>
+  </div>
+  <div class="sec">
+    <h3>Scale</h3>
+    <table>
+      <thead><tr><th>Role</th><th>Size</th><th>Weight</th><th>Tracking</th></tr></thead>
+      <tr><td>Hero</td><td>88–220px</td><td>700</td><td>−0.045em</td></tr>
+      <tr><td>Part title</td><td>44–88px</td><td>700</td><td>−0.035em</td></tr>
+      <tr><td>Section</td><td>19px</td><td>600</td><td>−0.01em</td></tr>
+      <tr><td>Body</td><td>17px / 1.55</td><td>400</td><td>0</td></tr>
+      <tr><td>Label</td><td>13px caps</td><td>500</td><td>+0.1em</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="part" id="glyphs">
+  <h2 class="part-title">Glyphs</h2>
+  <div class="sec">
+    <h3>Six chapters<small>Scanlines + dither</small></h3>
+    <p>One glyph per chapter. Each solid SVG masks a layer of 1.5px Plan-art scanlines over a grainy Plan-blue tile, and a halftone dot screen fades in from one corner. After the Talli landing bands.</p>
+    <ol class="glyphs">
+      <li><figure class="glyph"><div class="art g-precalc"></div><figcaption>Pre-Calc<span>Parabola</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-kpu"></div><figcaption>KPU<span>Rocket</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-sfu"></div><figcaption>SFU<span>Burnaby Mtn</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-beedie"></div><figcaption>Beedie<span>Rising chart</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-ubc"></div><figcaption>UBC<span>Bridge</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-gastown"></div><figcaption>Gastown<span>Steam clock</span></figcaption></figure></li>
+    </ol>
+    <p class="note">Raw SVGs live in <code>brand/glyphs/</code>: <a href="glyphs/precalc.svg">precalc</a> · <a href="glyphs/kpu.svg">kpu</a> · <a href="glyphs/sfu.svg">sfu</a> · <a href="glyphs/beedie.svg">beedie</a> · <a href="glyphs/ubc.svg">ubc</a> · <a href="glyphs/gastown.svg">gastown</a>. Black on transparent, 100×100.</p>
+  </div>
+</section>
+
+<section class="part" id="components">
+  <h2 class="part-title">Components</h2>
+  <div class="sec">
+    <h3>Buttons and labels</h3>
+    <p class="row"><a class="btn btn-solid" href="#components">Solid</a><a class="btn btn-ghost" href="#components">Ghost</a><span class="status">Status</span></p>
+    <p class="label">Label · 13px caps</p>
+  </div>
+  <div class="sec">
+    <h3>Task list</h3>
+    <ol class="tasks">
+      <li class="done"><i class="tick"></i><div><b>Done</b><span class="d">Filled tick.</span></div><span class="due">Nov 5</span></li>
+      <li class="now"><i class="tick"></i><div><b>Now</b><span class="d">Blue square, blue date.</span></div><span class="due">Mon Nov 9</span></li>
+      <li><i class="tick"></i><div><b>Next</b><span class="d">Empty tick.</span></div><span class="due">Jan 2027</span></li>
+    </ol>
+  </div>
+  <div class="sec">
+    <h3>Card and table</h3>
+    <div class="cards">
+      <div class="card pick"><h3>Picked <span class="status">Default</span></h3><p class="note">Blue top rule.</p></div>
+      <div class="card"><h3>Option</h3><p class="note">Paper 2, hairline.</p></div>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">Amount</th></tr></thead>
+      <tr><td>Line</td><td class="n">$52/mo</td></tr>
+      <tr class="total"><td>Total</td><td class="n">~$1,740/mo</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="part" id="rules">
+  <h2 class="part-title">Rules</h2>
+  <div class="sec">
+    <h3>Keep it</h3>
+    <ul class="rules">
+      <li><b>One accent.</b> Plan blue for what's live; everything else is ink on paper.</li>
+      <li><b>Square corners.</b> 2px on buttons, cards and tiles; only the app icon rounds.</li>
+      <li><b>Caps for labels only.</b> Headings stay sentence case.</li>
+      <li><b>Numbers are cited.</b> A figure on the plan has a source in the footer drawer.</li>
+      <li><b>No inline styles</b> on the plan page; new pieces go in plan.css and show up here.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot-band">
+  <div class="foot wrap">
+    <div class="foot-rule"><span>Plan</span><span>Brand kit</span></div>
+    <p class="foot-meta"><span>&copy; 2026 Joshua Trommel &middot; set in Plan Sans</span><a href="../">plan.jaybulb.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

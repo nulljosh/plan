@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan</title>
+<script>document.documentElement.classList.add('js')</script>
+<meta name="description" content="Joshua Trommel's ten-year plan: LECSS, a year at KPU, SFU Computing Science with a Beedie business minor, then UBC for engineering and grad work. One page, kept current.">
+<meta property="og:title" content="Plan"><meta property="og:description" content="Ten years: computer science, engineering, finance. Kept current."><meta property="og:url" content="https://plan.jaybulb.com">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="preload" as="image" href="film/precalc.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="preload" href="fonts/PlanSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="plan.css">
+</head>
+<body>
+<header class="nav" aria-label="Site"><div class="wrap">
+  <a class="nav-brand" href="#top"><img src="icon.svg" alt="">Plan</a>
+  <nav class="nav-links" aria-label="Sections"><a href="#now">Now</a><a href="#plan">Plan</a><a href="#kpu">KPU</a><a href="#money">Money</a><a href="#outlook">Outlook</a></nav>
+  <a class="btn btn-ghost" href="brand/">Brand kit</a>
+</div></header>
+  <section class="hero" id="top">
+    <div class="film" id="film" aria-hidden="true"><img src="film/precalc.jpg" alt="" fetchpriority="high"><img src="film/sfu.jpg" alt="" decoding="async"><img src="film/beedie.jpg" alt="" decoding="async"><img src="film/dev.jpg" alt="" decoding="async"><img src="film/eng.jpg" alt="" decoding="async"><img src="film/gastown.jpg" alt="" decoding="async"></div>
+    <div class="year" id="year" aria-hidden="true"></div>
+    <div class="kicker">Joshua Trommel &middot; The next ten years</div>
+    <h1>From Pre-Calc to UBC, inside my 30s.</h1>
+    <p class="lede">LECSS, KPU, SFU, then UBC. Computer science, engineering, and finance along the way.</p>
+    <div class="kicker" id="elapsed" data-next="Next: register at KPU, Mon Nov 9"></div>
+    <div class="kicker" id="chapter"></div>
+    <div class="chapters" id="chapters" aria-label="Chapters"></div>
+    <div class="cta"><a class="btn btn-solid" href="#now">Where we are</a><a class="btn btn-ghost" href="#plan">The plan</a></div>
+  </section>
+  <script>
+    // The hero is a time-lapse of the plan: 120 months, Sep 2026 to Sep 2036, played in ~24s and looped.
+    // Each chapter is real footage of where the plan goes; the year ticks behind the text and the caption follows the timeline table.
+    (function(){
+      var START=new Date(2026,8,1),now=new Date(),
+          nowMonth=Math.max(0,Math.min(120,(now.getFullYear()-START.getFullYear())*12+now.getMonth()-START.getMonth())),
+          CHAPTERS=[[0,'Pre-Calculus 12 · LECSS, then a year at KPU'],[24,'SFU Computing Science · calc + physics'],[44,'Beedie Business minor · co-op'],[54,'Graduate SFU · ship the apps'],[60,'UBC · engineering and grad work'],[120,'Gastown. Inside my 30s.']],
+          MS_PER_MONTH=200,HOLD=2500,
+          film=document.getElementById('film').children,yearEl=document.getElementById('year'),chapEl=document.getElementById('chapter');
+      var el=document.getElementById('elapsed');el.textContent='Month '+nowMonth+' of 120 · '+el.dataset.next;
+      var bar=document.getElementById('chapters'),segs;
+      bar.innerHTML=CHAPTERS.slice(0,-1).map(function(c){return '<button type="button" title="'+c[1]+'"></button>';}).join('');segs=bar.children;
+      bar.addEventListener('click',function(e){var k=[].indexOf.call(segs,e.target);if(k>=0)t0=performance.now()-CHAPTERS[k][0]*MS_PER_MONTH;});
+
+      var shown=-1,chapter='',ci=-1;
+      function frame(m){
+        for(var q=0;q<segs.length;q++){var a=CHAPTERS[q][0],b=CHAPTERS[q+1][0];segs[q].style.setProperty('--p',Math.max(0,Math.min(1,(m-a)/(b-a))));}
+        if(m===shown)return;
+        yearEl.textContent=START.getFullYear()+Math.floor(m/12);
+        var c='',k2=0;for(var k=0;k<CHAPTERS.length;k++)if(m>=CHAPTERS[k][0]){c=CHAPTERS[k][1];k2=k;}
+        if(k2!==ci){ci=k2;for(var j=0;j<film.length;j++)film[j].classList.toggle('on',j===k2);ink(film[k2]);}
+        if(c!==chapter){chapter=c;chapEl.textContent=c;chapEl.style.animation='none';void chapEl.offsetWidth;chapEl.style.animation='';}
+        shown=m;
+      }
+      // Ink: sample the centre of the active shot; light scene = black text on white patches, dark scene = the reverse.
+      var cv=document.createElement('canvas'),cx=cv.getContext('2d',{willReadFrequently:true}),hero=document.querySelector('.hero');cv.width=cv.height=16;
+      function ink(img){
+        if(!img.complete||!img.naturalWidth){img.addEventListener('load',function(){ink(img);},{once:true});return;}
+        var w=img.naturalWidth,h=img.naturalHeight;cx.drawImage(img,w*.25,h*.3,w*.5,h*.4,0,0,16,16);
+        var d=cx.getImageData(0,0,16,16).data,l=0;for(var i=0;i<d.length;i+=4)l+=d[i]*.2126+d[i+1]*.7152+d[i+2]*.0722;
+        l=l/(d.length/4)/255*.7; // the blue multiply overlay darkens every scene
+        var dark=l<.42;hero.style.setProperty('--ink',dark?'#fff':'#0f0f0f');hero.style.setProperty('--paper',dark?'rgba(15,15,15,.72)':'rgba(255,255,255,.85)');
+      }
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches){frame(nowMonth);return;}
+      var total=120*MS_PER_MONTH+HOLD,t0=performance.now();
+      (function loop(t){var e=t-t0;if(e>=total){t0=t;e=0;}frame(Math.min(120,Math.floor(e/MS_PER_MONTH)));requestAnimationFrame(loop);})(t0);
+
+      // Parallax: the active shot leans toward the pointer, or with the phone's tilt.
+      function lean(x,y){var s='translate('+(x*-24)+'px,'+(y*-16)+'px)';for(var j=0;j<film.length;j++)film[j].style.transform=s;}
+      addEventListener('pointermove',function(e){lean(e.clientX/innerWidth-.5,e.clientY/innerHeight-.5);},{passive:true});
+      addEventListener('deviceorientation',function(e){if(e.gamma!=null)lean(Math.max(-.5,Math.min(.5,e.gamma/60)),Math.max(-.5,Math.min(.5,(e.beta-45)/90)));},{passive:true});
+    })();
+  </script>
+
+
+<main class="wrap">
+
+<section class="part" id="now">
+  <h2 class="part-title">Where we are</h2>
+
+  <div class="sec">
+    <h3>Now<small><span class="count">2</span> in progress</small></h3>
+    <ol class="tasks">
+      <li class="now"><i class="tick"></i><div><b>Pre-Calculus 12 at LECSS</b><span class="d">Month 2 of 10, online, Section 53. The one gap between me and SFU. Aiming for an A.</span></div><span class="due">to Jun 23, 2027</span></li>
+      <li class="now"><i class="tick"></i><div><b>Register at KPU for Spring 2027</b><span class="d">myKPU → Register for Classes → Plans → “Spring 2027 Online” → Add All → Submit. Five online courses, 15 credits.</span></div><span class="due">Mon Nov 9</span></li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <h3>Next<small>Through 2027</small></h3>
+    <ol class="tasks">
+      <li><i class="tick"></i><div><b>StudentAid BC, with disability status</b><span class="d">Covers KPU tuition (CSG-D up to $2,800/yr). Family backs it up.</span></div><span class="due">Before Jan 2027</span></li>
+      <li><i class="tick"></i><div><b>Last no-penalty drop at KPU</b></div><span class="due">Tue Jan 5, 2027</span></li>
+      <li><i class="tick"></i><div><b>KPU classes start</b><span class="d">Writing, marketing, microeconomics, two design. All on Zoom or self-paced.</span></div><span class="due">Wed Jan 6, 2027</span></li>
+      <li><i class="tick"></i><div><b>Pay KPU fees</b></div><span class="due">Thu Jan 21, 2027</span></li>
+      <li><i class="tick"></i><div><b>Open an RDSP</b><span class="d">Up to $3,500/yr grant + $1,000/yr bond. Earlier is better.</span></div><span class="due">Anytime</span></li>
+      <li><i class="tick"></i><div><b>Finish Pre-Calc 12</b></div><span class="due">Jun 23, 2027</span></li>
+      <li><i class="tick"></i><div><b>Fall 2027 at KPU</b><span class="d">Math, CPSC 1103 (intro programming) and physics, as Langley or online sections open up.</span></div><span class="due">Sep 2027</span></li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <h3>Later<small>2028 on</small></h3>
+    <ol class="tasks">
+      <li><i class="tick"></i><div><b>Apply to SFU Computing Science</b><span class="d">As a transfer student: Pre-Calc 12 plus a year of KPU.</span></div><span class="due">For Fall 2028</span></li>
+      <li><i class="tick"></i><div><b>SFU year 1: calculus and physics</b><span class="d">Keeps engineering open.</span></div><span class="due">2028–29</span></li>
+      <li><i class="tick"></i><div><b>Declare the Beedie Business minor</b></div><span class="due">End of SFU year 2</span></li>
+      <li><i class="tick"></i><div><b>Physics 12 and Chemistry 12</b><span class="d">For engineering. Current Grade 12 science is Anatomy &amp; Physiology / Biology, a pass.</span></div><span class="due">Before UBC</span></li>
+      <li><i class="tick"></i><div><b>Apply to UBC</b><span class="d">Engineering and graduate work.</span></div><span class="due">Final SFU year</span></li>
+      <li><i class="tick"></i><div><b>Move to Kits or Chinatown</b></div><span class="due">1–2 yrs after grad</span></li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <h3>Done<small><span class="count">3</span> so far</small></h3>
+    <ol class="tasks">
+      <li class="done"><i class="tick"></i><div><b>Admitted to KPU</b><span class="d">BTech Information Technology, no holds.</span></div><span class="due">2025</span></li>
+      <li class="done"><i class="tick"></i><div><b>Registered for Pre-Calc 12 at LECSS</b></div><span class="due">Sep 2026</span></li>
+      <li class="done"><i class="tick"></i><div><b>Picked the Spring 2027 KPU courses</b><span class="d">Saved in KPU Plan Ahead as “Spring 2027 Online”.</span></div><span class="due">Nov 5, 2026</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="part" id="plan">
+  <h2 class="part-title">The plan</h2>
+
+  <div class="sec" id="timeline">
+    <h3>Timeline</h3>
+    <table>
+      <tr><td class="when">2026&ndash;27</td><td><strong>LECSS.</strong> Pre-Calculus 12 online, Sep 2026 – Jun 2027. The one admission gap.</td></tr>
+      <tr><td class="when">2027</td><td><strong>KPU, the launchpad.</strong> Spring 2027: five online courses — writing, marketing, microeconomics, two design. Then math, programming and physics as Langley or online sections open up. GPA is the whole job.</td></tr>
+      <tr><td class="when">2028&ndash;31</td><td><strong>SFU, the accelerator.</strong> Computing Science BSc, Burnaby, entering as a transfer student. Calc + physics in year 1. Declare the Beedie Business minor end of year 2, finance electives. Co-op terms.</td></tr>
+      <tr><td class="when">2031 &rarr;</td><td><strong>UBC, the destination.</strong> Engineering and graduate work (MEng or MSc), research, toward P.Eng — and the long game, a faculty position.</td></tr>
+      <tr><td class="when">Late 30s</td><td>Optional finance major or MSc Finance if the quant side is where the work is. Done before 40.</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <h3>School and path</h3>
+    <p><strong>SFU Computing Science</strong> — a real Bachelor of Science in Burnaby, easier admission than UBC. Degree, not diploma. Calc and physics in year 1 so engineering stays open, with a <strong>Business minor at SFU Beedie</strong> (or an MSc Finance after).</p>
+    <p><strong>Then UBC</strong> — engineering and graduate work, research, and the long game: a faculty position, and faculty housing on the Endowment Lands.</p>
+    <p class="note">Ruled out as the degree: UVic (not Lower Mainland) · KPU (no real CS degree — the launchpad instead) · BCIT (too vocational, closes the engineering door).</p>
+  </div>
+
+  <div class="sec">
+    <h3>Finance track<small>SFU Beedie</small></h3>
+    <p>CS is the base. Finance is the multiplier — it's what turns a dev job into quant/fintech/trading pay. Two ways to add it, pick one at end of year 2:</p>
+    <div class="cards">
+      <div class="card pick">
+        <h3>Business minor <span class="status">Default</span></h3>
+        <p class="note">Beedie, ~10–11 courses inside the BSc</p>
+        <dl><dt>What it costs</dt><dd>Beedie has no Finance minor. The Business minor is BUS 200/251/311/340/341/401 + electives; load the electives with finance (BUS 312/315/316).</dd>
+        <dt>Best if</dt><dd>You want to graduate on time and work as a dev at a fintech/bank.</dd></dl>
+      </div>
+      <div class="card">
+        <h3>MSc Finance</h3>
+        <p class="note">Beedie, 16 months post-BSc</p>
+        <dl><dt>What it costs</dt><dd>~$41k domestic tuition, one extra year of no salary. Needs decent GPA + GMAT/GRE.</dd>
+        <dt>Best if</dt><dd>You want quant / portfolio / trading roles, not just engineering.</dd></dl>
+      </div>
+    </div>
+    <p><strong>Default:</strong> take the minor. It's free relative to the degree and keeps the master's open — MSc Finance admits CS grads, and a Business minor + CS BSc is a stronger application than CS alone. Decide on the master's after you've worked 1–2 years and know whether you actually want the quant side.</p>
+    <p class="note">Practical note: keep first-year calc and stats strong — both the minor and MSc lean on them, and it's the same calc you're already taking to keep engineering open. No extra prereq cost.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Pre-Calculus 12<small>In progress</small></h3>
+    <p>Graduated 2018 with <strong>Pre-Calculus 11</strong>. SFU Computing Science needs <strong>Pre-Calculus 12</strong> — the only gap: English Studies 12 (A), Science 12 and Law 12 already cover the other approved Grade 12 courses. Online at <strong>LECSS</strong>, Section 53, Sep 14 2026 – Jun 23 2027. <a href="https://www.sfu.ca/students/admission/admission-requirements/canadian-highschool/bc-yukon/computing-science.html">SFU requirements</a></p>
+  </div>
+
+  <div class="sec" id="kpu">
+    <h3>KPU, Spring 2027<small>Registering Mon Nov 9</small></h3>
+    <p>Admitted to KPU (BTech Information Technology, no holds). Five courses, 15 credits, all online — no Surrey. Classes Jan 6 – Apr 13, 2027; exams Apr 15–23. Saved in Plan Ahead as “Spring 2027 Online”.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Course</th><th>When</th><th class="n">CRN</th></tr></thead>
+      <tr><td><strong>ENGL 1100</strong> University Writing<br><span class="note">Critical reading, analysis, a research paper. The writing credit every degree asks for.</span></td><td>Self-paced · exam at Langley, Fri Apr 16</td><td class="n">15645</td></tr>
+      <tr><td><strong>MRKT 1199</strong> Intro to Marketing<br><span class="note">Customers, competition, pricing, distribution, promotion.</span></td><td>Mon 1:00–3:50pm, Zoom</td><td class="n">18519</td></tr>
+      <tr><td><strong>DESN 1160</strong> Design Storytelling<br><span class="note">How text and images carry a story across design disciplines. Closest open course to typography.</span></td><td>Wed 8:00–11:50am, Zoom</td><td class="n">17480</td></tr>
+      <tr><td><strong>ECON 1150</strong> Microeconomics<br><span class="note">Markets, pricing, resource allocation. Feeds the finance side.</span></td><td>Thu 7:00–9:50pm, Zoom</td><td class="n">18415</td></tr>
+      <tr><td><strong>DESN 1240</strong> Intro to Digital Studio<br><span class="note">Photoshop, Illustrator, InDesign; ends with a design portfolio.</span></td><td>Fri 8:00–11:50am, Zoom</td><td class="n">17634</td></tr>
+    </table></div>
+    <p class="note">Not this term: math and programming. MATH 1112 (Pre-Calculus) and CPSC 1103 (intro programming) run in person at Surrey/Richmond only in Spring 2027; Pre-Calc stays at LECSS. Typography (GDMA) is restricted to the Graphic Design program. Grades here count toward the SFU application — a full year at KPU (~30 credits) puts you past 24 transferable credits, so SFU reads it as a transfer application. The KPU GPA is what gets you in.</p>
+  </div>
+</section>
+
+<section class="part" id="money">
+  <h2 class="part-title">Money</h2>
+
+  <div class="sec">
+    <h3>Tuition and grants</h3>
+    <ul>
+      <li><strong>KPU, Spring 2027:</strong> 15 credits of regular tuition, no extra course fees. StudentAid BC and family.</li>
+      <li><strong>SFU:</strong> ~$7,000–7,500/yr ($220.61/unit × 30 units + fees, 2026–27). Living at home saves the big cost, housing.</li>
+      <li><strong>CSG-D:</strong> up to $2,800/yr for tuition and books, via StudentAid BC. <strong>CSG-DSE:</strong> up to $20,000/yr for equipment and tutoring, via the school's accessibility office. PWD medical evidence speeds up verification.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h3>Income while studying</h3>
+    <table>
+      <tr><td>PWD disability assistance</td><td class="n">up to $1,483/mo</td></tr>
+      <tr><td>Transportation supplement</td><td class="n">$52/mo</td></tr>
+      <tr><td>Canada Disability Benefit</td><td class="n">$204/mo</td></tr>
+      <tr class="total"><td>Estimated total</td><td class="n">~$1,740/mo</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <h3>Also worth having</h3>
+    <ul>
+      <li><strong>GST/HST Credit</strong> — automatic once you file taxes, keep filing every year.</li>
+      <li><strong>CWB disability supplement</strong> — kicks in once you have co-op/part-time income.</li>
+      <li><strong>Community Living BC (CLBC)</strong> — supports for adults with autism diagnosis, worth a conversation.</li>
+      <li><strong>PWD health supplements</strong> — dental, equipment, some therapy costs. Ask your worker what's covered.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h3>Monthly expenses<small>Now vs. post-grad</small></h3>
+    <table>
+      <thead><tr><th>Expense</th><th class="n">At home</th><th class="n">Kits/Chinatown</th></tr></thead>
+      <tr><td>Rent</td><td class="n">$0–400</td><td class="n">$1,900–2,600</td></tr>
+      <tr><td>Food</td><td class="n">$300–400</td><td class="n">$400–500</td></tr>
+      <tr><td>Transit</td><td class="n">$0</td><td class="n">$0–130</td></tr>
+      <tr><td>Phone/internet</td><td class="n">$60–100</td><td class="n">$80–120</td></tr>
+      <tr><td>Personal/misc</td><td class="n">$150–250</td><td class="n">$250–350</td></tr>
+      <tr class="total"><td>Total</td><td class="n">~$500–1,150</td><td class="n">~$2,600–3,700</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="part" id="outlook">
+  <h2 class="part-title">Outlook</h2>
+
+  <div class="sec">
+    <h3>Salary progression<small>Vancouver, software dev/engineer, CAD/yr</small></h3>
+    <table>
+      <tr><td>Entry (0–2 yrs)</td><td class="n">~$90k</td></tr>
+      <tr><td>Mid (3–6 yrs)</td><td class="n">~$120k</td></tr>
+      <tr><td>Senior (7+ yrs)</td><td class="n">~$165k</td></tr>
+      <tr><td>Staff / FAANG</td><td class="n">$200k+</td></tr>
+    </table>
+    <p class="note">Finance-adjacent roles (fintech backend, quant dev, trading infra) run roughly 15–30% above these in Vancouver, and higher again in Toronto/NYC. That's the case for the minor.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Net worth over time<small>Years since graduation</small></h3>
+    <p class="note">Cumulative savings from staged raises (entry → mid → senior), after-tax income saved at the rate you pick, compounding at the return you pick. Hover for any year. The buttons past $1M are a joke about compounding, and also math.</p>
+    <div>
+    <div class="ctl">
+      <label>Save <input id="save" type="range" min="10" max="70" value="33"><span id="saveV">33%</span></label>
+      <label>Return <input id="ret" type="range" min="0" max="100" value="6"><span id="retV">6%/yr</span></label>
+      <div class="goals" id="goals"></div>
+    </div>
+    <svg id="chart" viewBox="0 0 680 340" role="img" aria-label="Net worth projection"></svg>
+    <p id="verdict"></p>
+    <script>
+    (function(){
+      // ponytail: toy model. staged salary, flat tax, one return rate. Sliders are the whole "engine".
+      var GOALS=[
+        [1e6,'$1M','Renting in Kits',6,''],
+        [1e9,'$1B','Hedge fund',20,'2-and-20 on other people\u2019s money. Return set to 20%, which is what the fund tells its LPs.'],
+        [1e11,'$100B','Founder',35,'Equity in a company that only goes up. 35% a year, every year, forever.'],
+        [1e12,'$1T','Elon',60,'Since Elon can do it anybody can. 60% a year. Rockets optional.']
+      ];
+      var SAL=[90,90,120,120,120,120,165,165,165,165,165,200],TAX=.72,GRAD_AGE=31,MAXY=200;
+      var save=document.getElementById('save'),ret=document.getElementById('ret'),svg=document.getElementById('chart'),verdict=document.getElementById('verdict'),goals=document.getElementById('goals'),gi=0;
+      GOALS.forEach(function(g,i){var b=document.createElement('button');b.textContent=g[1]+' \u00b7 '+g[2];b.onclick=function(){gi=i;ret.value=g[3];draw();};goals.appendChild(b);});
+      function model(){var r=ret.value/100,p=save.value/100,v=0,out=[0],goal=GOALS[gi][0];
+        for(var y=1;y<=MAXY;y++){v=v*(1+r)+(SAL[Math.min(y-1,SAL.length-1)]*1e3*TAX*p);out.push(v);if(v>=goal)break;}return out;}
+      function fmt(n){return n>=1e12?'$'+(n/1e12).toFixed(1)+'T':n>=1e9?'$'+(n/1e9).toFixed(1)+'B':n>=1e6?'$'+(n/1e6).toFixed(1)+'M':'$'+Math.round(n/1e3)+'k';}
+      var pts,X0=70,X1=650,Y0=280,Y1=20,logm;
+      // xy: plots a point in chart space. Linear goals (gi===0, $1M) use a straight 0..max scale.
+      // Bigger goals switch to log10 so early-year growth (near $0) is still visible next to a $1T finish line.
+      function xy(i,v){var n=pts.length-1,x=X0+(X1-X0)*i/n,y=logm?Y0-(Y0-Y1)*Math.log10(Math.max(v,1e3)/1e3)/Math.log10(GOALS[gi][0]/1e3):Y0-(Y0-Y1)*v/Math.max(GOALS[gi][0],pts[n]);return [x,y];}
+      function draw(){pts=model();logm=gi>0;var g=GOALS[gi],n=pts.length-1,hit=pts[n]>=g[0],h='';
+        goals.childNodes.forEach(function(b,i){b.setAttribute('aria-pressed',i===gi);});
+        saveV.textContent=save.value+'%';retV.textContent=ret.value+'%/yr';
+        h+='<line x1="'+X0+'" y1="'+Y1+'" x2="'+X0+'" y2="'+Y0+'" stroke="currentColor"/><line x1="'+X0+'" y1="'+Y0+'" x2="'+X1+'" y2="'+Y0+'" stroke="currentColor"/>';
+        var ticks=logm?[1e3,1e4,1e5,1e6,1e7,1e8,1e9,1e10,1e11,1e12].filter(function(t){return t<=g[0];}):[0,.25,.5,.75,1].map(function(f){return f*Math.max(g[0],pts[n]);});
+        ticks.forEach(function(t){var y=xy(0,t)[1];h+='<line class="grid" x1="'+X0+'" x2="'+X1+'" y1="'+y+'" y2="'+y+'"/><text x="62" y="'+(y+4)+'" text-anchor="end" font-size="11">'+(t?fmt(t):'$0')+'</text>';});
+        var step=n<=20?3:n<=60?10:25;for(var y=0;y<=n;y+=step){h+='<text x="'+xy(y,0)[0]+'" y="298" text-anchor="middle" font-size="11">'+y+'</text>';}
+        h+='<text x="360" y="318" text-anchor="middle" font-size="12" font-weight="600">Years since graduation</text>';
+        h+='<polyline fill="none" stroke="currentColor" stroke-width="2.5" points="'+pts.map(function(v,i){return xy(i,v).join(',');}).join(' ')+'"/>';
+        if(hit){var e=xy(n,pts[n]);h+='<circle cx="'+e[0]+'" cy="'+e[1]+'" r="4" fill="currentColor"/><text x="'+(e[0]-8)+'" y="'+(e[1]+18)+'" text-anchor="end" font-size="11" font-weight="700">'+g[1]+' \u00b7 yr '+n+'</text>';}
+        h+='<g id="hov" hidden><line y1="'+Y1+'" y2="'+Y0+'" stroke="currentColor" stroke-dasharray="3,4"/><circle r="4" fill="currentColor"/><text font-size="11" font-weight="700"></text></g>';
+        svg.innerHTML=h;
+        verdict.textContent=hit?g[1]+' in year '+n+', age '+(GRAD_AGE+n)+(n>60?'. Cryonics not included.':'. ')+' '+g[4]:'Not in '+MAXY+' years. Ends at '+fmt(pts[n])+'. Turn the return knob up; that is what everyone else did.';
+      }
+      svg.addEventListener('pointermove',function(e){var r=svg.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*680,n=pts.length-1,i=Math.round((x-X0)/(X1-X0)*n);if(i<0||i>n)return;var p=xy(i,pts[i]),hv=svg.querySelector('#hov');hv.hidden=false;
+        hv.querySelector('line').setAttribute('x1',p[0]);hv.querySelector('line').setAttribute('x2',p[0]);hv.querySelector('circle').setAttribute('cx',p[0]);hv.querySelector('circle').setAttribute('cy',p[1]);
+        var t=hv.querySelector('text');t.setAttribute('x',p[0]+(i>n/2?-8:8));t.setAttribute('y',Math.max(p[1]-10,30));t.setAttribute('text-anchor',i>n/2?'end':'start');t.textContent='yr '+i+' \u00b7 age '+(GRAD_AGE+i)+' \u00b7 '+fmt(pts[i]);});
+      svg.addEventListener('pointerleave',function(){svg.querySelector('#hov').hidden=true;});
+      save.oninput=ret.oninput=draw;draw();
+    })();
+    </script>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>Moving to Vancouver<small>Kits or Chinatown</small></h3>
+    <p>No student debt (living at home + covered tuition) plus entry-level pay clears Kits/Chinatown rent comfortably from year one of working. On the default model above, $1M lands around year 17 — while renting in Vancouver, not after.</p>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="foot-band">
+  <div class="foot wrap">
+    <ol class="glyphs" aria-label="The plan in six chapters">
+      <li><figure class="glyph"><div class="art g-precalc" role="img" aria-label="A parabola"></div><figcaption>Pre-Calc<span>LECSS · 2026</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-kpu" role="img" aria-label="A rocket"></div><figcaption>KPU<span>Launchpad · 2027</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-sfu" role="img" aria-label="Burnaby Mountain"></div><figcaption>SFU<span>CS · 2028</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-beedie" role="img" aria-label="A rising chart"></div><figcaption>Beedie<span>Minor · 2030</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-ubc" role="img" aria-label="A suspension bridge"></div><figcaption>UBC<span>Engineering · 2031</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-gastown" role="img" aria-label="The Gastown steam clock"></div><figcaption>Gastown<span>The long game</span></figcaption></figure></li>
+    </ol>
+    <div class="foot-story">
+      <div class="art g-mark" role="img" aria-label="Plan, A+"></div>
+      <div><h2>Ten years, one page.</h2><p>LECSS, KPU, SFU, UBC. Computer science, then engineering, with finance along the way, all inside my 30s. Kept current as the plan moves.</p></div>
+    </div>
+    <div class="foot-rule"><span>Plan</span><span>Joshua Trommel</span></div>
+    <div class="foot-dir">
+      <div><h3>This page</h3><ul><li><a href="#now">Where we are</a></li><li><a href="#kpu">KPU Spring 2027</a></li><li><a href="#money">Money</a></li><li><a href="brand/">Brand kit</a></li></ul></div>
+      <div><h3>Schools</h3><ul><li><a href="https://www.sfu.ca/computing.html">SFU Computing Science</a></li><li><a href="https://www.sfu.ca/beedie.html">SFU Beedie</a></li><li><a href="https://www.kpu.ca/registration/dates">KPU dates</a></li></ul></div>
+      <div><h3>Money</h3><ul><li><a href="https://studentaidbc.ca">StudentAid BC</a></li><li><a href="https://talli.jaybulb.com">Talli</a></li><li><a href="https://epiphany.jaybulb.com">Epiphany</a></li></ul></div>
+      <div><h3>Jaybulb</h3><ul><li><a href="https://jaybulb.com">All apps</a></li><li><a href="https://journal.jaybulb.com">Journal</a></li><li><a href="https://github.com/nulljosh">GitHub</a></li><li><a href="https://github.com/nulljosh/plan">This page's source</a></li></ul></div>
+    </div>
+    <details class="foot-sources" id="sources"><summary>Sources · 12</summary><ul>
+      <li>KPU Spring 2027 dates and deadlines — <a href="https://www.kpu.ca/registration/dates">kpu.ca/registration/dates</a>; sections and CRNs from KPU Banner class search, 2026-11-05</li>
+      <li>SFU Computing Science admission &amp; tuition — <a href="https://www.sfu.ca/students/calendar/2026/fall/fees-and-regulations/tuition-fees/undergraduate.html">sfu.ca/computing</a></li>
+      <li>StudentAid BC disability funding — <a href="https://studentaidbc.ca/explore/grants-scholarships/canada-student-grant-services-and-equipment-students-disabilities">studentaidbc.ca (CSG-DSE)</a></li>
+      <li>Canada Student Grant for Students with Disabilities (CSG-D) — <a href="https://www.canada.ca/en/employment-social-development/services/education/grants/disabilities.html">canada.ca</a></li>
+      <li>Canada Disability Benefit — <a href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/amount.html">canada.ca/canada-disability-benefit</a></li>
+      <li>BC PWD disability assistance rates — <a href="https://www2.gov.bc.ca/gov/content/family-social-supports/services-for-people-with-disabilities/disability-assistance/on-disability-assistance">gov.bc.ca/disability-assistance</a></li>
+      <li>BC Bus Pass / Transportation Supplement — <a href="https://www2.gov.bc.ca/gov/content/transportation/passenger-travel/buses-taxis-limos/bus-pass/people-with-disabilities">gov.bc.ca/bus-pass</a></li>
+      <li>RDSP grants and bonds — <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-disability-savings-plan-rdsp/canada-disability-savings-grant-canada-disability-savings-bond.html">canada.ca/disability-savings</a></li>
+      <li>SFU Beedie Business minor — <a href="https://www.sfu.ca/students/calendar/programs/business/minor.html">sfu.ca/calendar — business minor</a></li>
+      <li>Vancouver developer salaries — <a href="https://www.roberthalf.com/ca/en/job-details/software-engineerdeveloper/vancouver-bc">Robert Half 2026</a> ($89.7k–136.8k dev, $124.5k–169k senior) · <a href="https://www.levels.fyi/t/software-engineer/locations/vancouver-can">levels.fyi</a> (median TC $172k)</li>
+      <li>SFU Beedie MSc Finance — <a href="https://www.sfu.ca/beedie/programs/graduate/master-of-science-in-finance.html">sfu.ca/beedie — MSc Finance</a></li>
+      <li>Hero photos, Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Vancouver_Public_Library_Level_9_Expansion_2018.jpg">GoToVan from Vancouver, Canada</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Academic-Quadrangle-SFU-Burnaby-British-Columbia-Canada-06-A.jpg">RestfulC401 (WinterforceMedia)</a> (CC0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Harbour_Centre_--_2022_--_1860.jpg">Dietmar Rabich</a> (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_Night_Skyline_(15141299159).jpg">Jerry Meaden from Surrey, British Columbia, Canada</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Lions_Gate_Bridge_(air).jpg">unknown author</a> (CC BY-SA 3.0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Gastown_Steam_Clock_--_2022_--_1836.jpg">Dietmar Rabich</a> (CC BY-SA 4.0)</li>
+    
+      </ul></details>
+    <p class="foot-meta"><span>&copy; 2026 Joshua Trommel &middot; kept current &middot; set in Plan Sans &middot; <a href="https://github.com/nulljosh/plan">source on GitHub</a></span><a href="#top">Back to top &uarr;</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.sec').forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Sticky nav: underline the part you're reading.
+  var links = {}; document.querySelectorAll('.nav-links a').forEach(function(a){ links[a.hash.slice(1)] = a; });
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { for (var k in links) links[k].classList.toggle('on', k === e.target.id); } });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('.part').forEach(function(el){ spy.observe(el); });
+
+  var yearEl = document.getElementById('year');
+  if (yearEl && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var ticking = false;
+    addEventListener('scroll', function(){
+      if (!ticking) {
+        requestAnimationFrame(function(){ yearEl.style.transform = 'translateY(' + (scrollY * 0.1) + 'px)'; ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+</body>
+</html>
