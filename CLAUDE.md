@@ -9,11 +9,15 @@ Science, transfer entry, Beedie Business minor (2028–31) → UBC engineering +
 Dropped, don't bring back: Capilano paralegal, UVic, KPU MATQ, the old SFU → work → engineering
 2033–36 timeline.
 
-KPU Spring 2027: plan "Spring 2027 Langley" (preferred) in KPU Plan Ahead, all in person at Langley:
+## KPU rules (non-negotiable)
+- Langley campus only. No Surrey, no Richmond.
+- In person only. No Zoom, no online (sync or async).
+- Not pursuing the BTech IT (its courses run only at Surrey).
+
+KPU Spring 2027: the only plan in KPU Plan Ahead is "Spring 2027 Langley" (preferred):
 ENGL 1100 (13506, Mon 10–12:50), BUQU 1230 (17139, Tue 10–12:50), BUQU 1130 (17131, Tue 1–3:50),
-CMNS 1140 (10341, Thu 1–3:50), PSYC 1100 (14777, Thu 4–6:50). Registration Mon Nov 9 2026.
-Rules: Langley in person only (mom's call) — no Zoom/"Online Synchronous", no Surrey, no Richmond.
-Not pursuing BTech IT (Surrey only). Old "Spring 2027 Online" plan kept as backup, not preferred.
+CMNS 1140 (10341, Thu 1–3:50), BUSI 1110 (10283, Thu 4–6:50). Registration Mon Nov 9 2026.
+Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisit for Fall.
 
 ## Files
 - `index.html` — markup + three small scripts (hero time-lapse, chart, nav spy). No inline styles.
@@ -34,8 +38,8 @@ Paste this to Claude on Nov 9:
 > Registration for KPU Spring 2027 opened today. Open myKPU in Safari (I'll log in), go to
 > Register for Classes → Spring 2027 → Plans, load "Spring 2027 Langley", Add All, and show me
 > the summary before I hit Submit. CRNs: 13506 ENGL 1100, 17139 BUQU 1230, 17131 BUQU 1130,
-> 10341 CMNS 1140, 14777 PSYC 1100. If a section is full, waitlist it and suggest a Langley
-> in-person swap (no Zoom, no Surrey). Then update the plan: move "Register at KPU" to Done, set the hero
+> 10341 CMNS 1140, 10283 BUSI 1110. If a section is full, waitlist it and suggest a Langley
+> in-person swap (see KPU rules). Then update the plan: move "Register at KPU" to Done, set the hero
 > `#elapsed[data-next]` to the next task (StudentAid BC), mark the KPU section Registered,
 > commit, push and deploy.
 
