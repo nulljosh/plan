@@ -7,7 +7,7 @@ My next ten years on one page: [plan.jaybulb.com](https://plan.jaybulb.com).
 | When | What |
 |---|---|
 | 2026–27 | Pre-Calculus 12 online at LECSS |
-| 2027 | KPU, online: writing, marketing, micro, design; then math and programming |
+| 2027 | KPU Langley, in person: writing, business math, intro business; then math and programming |
 | 2028–31 | SFU Computing Science, Beedie Business minor |
 | 2031 → | UBC: engineering and grad work |
 

@@ -45,5 +45,8 @@ Paste this to Claude on Nov 9:
 > `#elapsed[data-next]` to the next task (StudentAid BC), mark the KPU section Registered,
 > commit, push and deploy.
 
-After that: StudentAid BC (disability status) before Jan; last no-penalty drop Tue Jan 5;
+StudentAid BC: account created Nov 5 (SIN check ≤72h); disability status application started, verification form
+sent to the assessing psychologist for signature — upload + submit when it comes back (~6 wks). Full-time
+aid application right after registering; parents add income via the Supporting Users Portal.
+After that: last no-penalty drop Tue Jan 5;
 classes start Wed Jan 6; fees due Thu Jan 21.
