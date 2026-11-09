@@ -17,7 +17,7 @@ Dropped, don't bring back: Capilano paralegal, UVic, KPU MATQ, the old SFU → w
 
 KPU Spring 2027: the only plan in KPU Plan Ahead is "Spring 2027 Langley" (preferred):
 ENGL 1100 (13506, Mon 10–12:50), BUQU 1130 (17131, Tue 1–3:50), BUSI 1110 (10283, Thu 4–6:50).
-9 credits, one class a day — no back-to-back classes (Joshua's call). Registration Mon Nov 9 2026.
+9 credits, one class a day — no back-to-back classes (Joshua's call). Registration Thu Nov 19 2026 (KPU-assigned time; term opened Nov 9).
 Deferred: BUQU 1230 (stats), CMNS 1140 (communication).
 Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisit for Fall.
 
@@ -34,8 +34,8 @@ Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisi
   update `#elapsed[data-next]` in the hero.
 - Numbers are cited; sources live in the footer drawer.
 
-## Next session: register at KPU (Mon Nov 9 2026)
-Paste this to Claude on Nov 9:
+## Next session: register at KPU (Thu Nov 19 2026)
+Paste this to Claude on Nov 19:
 
 > Registration for KPU Spring 2027 opened today. Open myKPU in Safari (I'll log in), go to
 > Register for Classes → Spring 2027 → Plans, load "Spring 2027 Langley", Add All, and show me
