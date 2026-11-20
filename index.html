@@ -9,7 +9,6 @@
 <meta property="og:title" content="Plan"><meta property="og:description" content="Ten years: computer science, engineering, finance. Kept current."><meta property="og:url" content="https://plan.jaybulb.com">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="preload" as="image" href="film/precalc.jpg" fetchpriority="high">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <link rel="preload" href="fonts/PlanSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="plan.css">
@@ -21,7 +20,7 @@
   <a class="btn btn-ghost" href="brand/">Brand kit</a>
 </div></header>
   <section class="hero" id="top">
-    <div class="film" id="film" aria-hidden="true"><img src="film/precalc.jpg" alt="" fetchpriority="high"><img src="film/sfu.jpg" alt="" decoding="async"><img src="film/beedie.jpg" alt="" decoding="async"><img src="film/dev.jpg" alt="" decoding="async"><img src="film/eng.jpg" alt="" decoding="async"><img src="film/gastown.jpg" alt="" decoding="async"></div>
+    <div class="film" id="film" aria-hidden="true"><i class="f-precalc"></i><i class="f-sfu"></i><i class="f-beedie"></i><i class="f-dev"></i><i class="f-eng"></i><i class="f-gastown"></i></div>
     <div class="year" id="year" aria-hidden="true"></div>
     <div class="kicker">Joshua Trommel &middot; The next ten years</div>
     <h1>From Pre-Calc to UBC, inside my 30s.</h1>
@@ -55,15 +54,9 @@
         if(c!==chapter){chapter=c;chapEl.textContent=c;chapEl.style.animation='none';void chapEl.offsetWidth;chapEl.style.animation='';}
         shown=m;
       }
-      // Ink: sample the centre of the active shot; light scene = black text on white patches, dark scene = the reverse.
-      var cv=document.createElement('canvas'),cx=cv.getContext('2d',{willReadFrequently:true}),hero=document.querySelector('.hero');cv.width=cv.height=16;
-      function ink(img){
-        if(!img.complete||!img.naturalWidth){img.addEventListener('load',function(){ink(img);},{once:true});return;}
-        var w=img.naturalWidth,h=img.naturalHeight;cx.drawImage(img,w*.25,h*.3,w*.5,h*.4,0,0,16,16);
-        var d=cx.getImageData(0,0,16,16).data,l=0;for(var i=0;i<d.length;i+=4)l+=d[i]*.2126+d[i+1]*.7152+d[i+2]*.0722;
-        l=l/(d.length/4)/255*.7; // the blue multiply overlay darkens every scene
-        var dark=l<.42;hero.style.setProperty('--ink',dark?'#fff':'#0f0f0f');hero.style.setProperty('--paper',dark?'rgba(15,15,15,.72)':'rgba(255,255,255,.85)');
-      }
+      // Ink: every colour field is deep enough for white type on dark patches.
+      var hero=document.querySelector('.hero');
+      function ink(){hero.style.setProperty('--ink','#fff');hero.style.setProperty('--paper','rgba(15,15,15,.72)');}
       if(matchMedia('(prefers-reduced-motion:reduce)').matches){frame(nowMonth);return;}
       var total=120*MS_PER_MONTH+HOLD,t0=performance.now();
       (function loop(t){var e=t-t0;if(e>=total){t0=t;e=0;}frame(Math.min(120,Math.floor(e/MS_PER_MONTH)));requestAnimationFrame(loop);})(t0);
@@ -340,7 +333,6 @@
       <li>SFU Beedie Business minor — <a href="https://www.sfu.ca/students/calendar/programs/business/minor.html">sfu.ca/calendar — business minor</a></li>
       <li>Vancouver developer salaries — <a href="https://www.roberthalf.com/ca/en/job-details/software-engineerdeveloper/vancouver-bc">Robert Half 2026</a> ($89.7k–136.8k dev, $124.5k–169k senior) · <a href="https://www.levels.fyi/t/software-engineer/locations/vancouver-can">levels.fyi</a> (median TC $172k)</li>
       <li>SFU Beedie MSc Finance — <a href="https://www.sfu.ca/beedie/programs/graduate/master-of-science-in-finance.html">sfu.ca/beedie — MSc Finance</a></li>
-      <li>Hero photos, Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Vancouver_Public_Library_Level_9_Expansion_2018.jpg">GoToVan from Vancouver, Canada</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Academic-Quadrangle-SFU-Burnaby-British-Columbia-Canada-06-A.jpg">RestfulC401 (WinterforceMedia)</a> (CC0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Harbour_Centre_--_2022_--_1860.jpg">Dietmar Rabich</a> (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_Night_Skyline_(15141299159).jpg">Jerry Meaden from Surrey, British Columbia, Canada</a> (CC BY 2.0) · <a href="https://commons.wikimedia.org/wiki/File:Lions_Gate_Bridge_(air).jpg">unknown author</a> (CC BY-SA 3.0) · <a href="https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Gastown_Steam_Clock_--_2022_--_1836.jpg">Dietmar Rabich</a> (CC BY-SA 4.0)</li>
     
       </ul></details>
     <p class="foot-meta"><span>&copy; 2026 Joshua Trommel &middot; kept current &middot; set in Plan Sans &middot; <a href="https://github.com/nulljosh/plan">source on GitHub</a></span><a href="#top">Back to top &uarr;</a></p>

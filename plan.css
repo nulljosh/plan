@@ -50,9 +50,14 @@ a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--p
 .hero{position:relative;min-height:calc(100dvh - 56px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--sp-8) var(--sp-5);overflow:hidden;scroll-snap-align:start;--ink:var(--color-text);--paper:var(--color-bg);color:var(--ink);transition:color .6s}
 .hero > *:not(.year):not(.film){position:relative;z-index:1}
 .film{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--color-bg2)}
-.film img{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;opacity:0;transition:opacity 1.2s ease,transform .6s ease-out;will-change:transform}
-.film img.on{opacity:1;animation:kb 24s linear both}
-.film::after{content:"";position:absolute;inset:0;background:var(--plan);opacity:.38;mix-blend-mode:multiply}
+.film i{position:absolute;inset:-6%;opacity:0;transition:opacity 1.2s ease,transform .6s ease-out;will-change:transform;background:radial-gradient(60% 70% at 25% 30%,var(--a),transparent 70%),radial-gradient(55% 65% at 80% 75%,var(--b),transparent 70%),var(--c)}
+.film i.on{opacity:1;animation:kb 24s linear both}
+.f-precalc{--a:#2F6FB0;--b:#1B3A6B;--c:#0E1F3D}
+.f-sfu{--a:#C8102E;--b:#6B0F1F;--c:#2A0A12}
+.f-beedie{--a:#0F8B8D;--b:#124E66;--c:#0A2433}
+.f-dev{--a:#5B5BD6;--b:#2B2D7A;--c:#12133A}
+.f-eng{--a:#1F9CD8;--b:#0C4A8A;--c:#071E3A}
+.f-gastown{--a:#7A5BC4;--b:#2D3A6B;--c:#0F1424}
 .year{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;font-family:var(--display);font-size:clamp(9rem,42vw,26rem);font-weight:700;letter-spacing:-.06em;line-height:1;color:var(--ink);opacity:.08;pointer-events:none;user-select:none}
 .hero .kicker,.hero .lede{background:var(--paper);color:var(--ink);display:inline-block;padding:.35em .7em;border-radius:var(--r-sq);transition:background .6s,color .6s}
 .hero .kicker{font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
@@ -67,7 +72,7 @@ a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--p
 .chapters button::after{opacity:1;width:calc(var(--p,0)*100%);transition:width .2s linear}
 @keyframes kb{from{scale:1}to{scale:1.08}}
 @keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){#chapter,.film img{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){#chapter,.film i{animation:none!important;transition:none!important}}
 
 /* Parts: a big display heading, then sections with the title in a side column */
 main.wrap{max-width:var(--read)}
