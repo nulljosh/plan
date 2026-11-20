@@ -60,11 +60,6 @@
       if(matchMedia('(prefers-reduced-motion:reduce)').matches){frame(nowMonth);return;}
       var total=120*MS_PER_MONTH+HOLD,t0=performance.now();
       (function loop(t){var e=t-t0;if(e>=total){t0=t;e=0;}frame(Math.min(120,Math.floor(e/MS_PER_MONTH)));requestAnimationFrame(loop);})(t0);
-
-      // Parallax: the active shot leans toward the pointer, or with the phone's tilt.
-      function lean(x,y){var s='translate('+(x*-24)+'px,'+(y*-16)+'px)';for(var j=0;j<film.length;j++)film[j].style.transform=s;}
-      addEventListener('pointermove',function(e){lean(e.clientX/innerWidth-.5,e.clientY/innerHeight-.5);},{passive:true});
-      addEventListener('deviceorientation',function(e){if(e.gamma!=null)lean(Math.max(-.5,Math.min(.5,e.gamma/60)),Math.max(-.5,Math.min(.5,(e.beta-45)/90)));},{passive:true});
     })();
   </script>
 
