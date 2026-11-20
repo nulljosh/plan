@@ -21,24 +21,22 @@
 </div></header>
   <section class="hero" id="top">
     <div class="film" id="film" aria-hidden="true"><i class="f-precalc"></i><i class="f-sfu"></i><i class="f-beedie"></i><i class="f-dev"></i><i class="f-eng"></i><i class="f-gastown"></i></div>
-    <div class="year" id="year" aria-hidden="true"></div>
-    <div class="kicker">Joshua Trommel &middot; The next ten years</div>
-    <h1>From Pre-Calc to UBC, inside my 30s.</h1>
-    <p class="lede">LECSS, KPU, SFU, then UBC. Computer science, engineering, and finance along the way.</p>
+    <div class="kicker">Joshua Trommel &middot; 2026–2036</div>
+    <h1>Pre-Calc to UBC.</h1>
+    <p class="lede">LECSS, KPU, SFU, then UBC. Computer science, engineering and business.</p>
     <div class="kicker" id="elapsed" data-next="Next: StudentAid BC, before Jan 2027"></div>
-    <div class="kicker" id="chapter"></div>
     <div class="chapters" id="chapters" aria-label="Chapters"></div>
     <div class="cta"><a class="btn btn-solid" href="#now">Where we are</a><a class="btn btn-ghost" href="#plan">The plan</a></div>
   </section>
   <script>
     // The hero is a time-lapse of the plan: 120 months, Sep 2026 to Sep 2036, played in ~24s and looped.
-    // Each chapter is real footage of where the plan goes; the year ticks behind the text and the caption follows the timeline table.
+    // Each chapter has its own flat colour; the bar under the text shows where the plan is.
     (function(){
       var START=new Date(2026,8,1),now=new Date(),
           nowMonth=Math.max(0,Math.min(120,(now.getFullYear()-START.getFullYear())*12+now.getMonth()-START.getMonth())),
           CHAPTERS=[[0,'Pre-Calculus 12 · LECSS, then a year at KPU'],[24,'SFU Computing Science · calc + physics'],[44,'Beedie Business minor · co-op'],[54,'Graduate SFU · ship the apps'],[60,'UBC · engineering and grad work'],[120,'Gastown. Inside my 30s.']],
           MS_PER_MONTH=200,HOLD=2500,
-          film=document.getElementById('film').children,yearEl=document.getElementById('year'),chapEl=document.getElementById('chapter');
+          film=document.getElementById('film').children;
       var el=document.getElementById('elapsed');el.textContent='Month '+nowMonth+' of 120 · '+el.dataset.next;
       var bar=document.getElementById('chapters'),segs;
       bar.innerHTML=CHAPTERS.slice(0,-1).map(function(c){return '<button type="button" title="'+c[1]+'"></button>';}).join('');segs=bar.children;
@@ -48,10 +46,8 @@
       function frame(m){
         for(var q=0;q<segs.length;q++){var a=CHAPTERS[q][0],b=CHAPTERS[q+1][0];segs[q].style.setProperty('--p',Math.max(0,Math.min(1,(m-a)/(b-a))));}
         if(m===shown)return;
-        yearEl.textContent=START.getFullYear()+Math.floor(m/12);
         var c='',k2=0;for(var k=0;k<CHAPTERS.length;k++)if(m>=CHAPTERS[k][0]){c=CHAPTERS[k][1];k2=k;}
         if(k2!==ci){ci=k2;for(var j=0;j<film.length;j++)film[j].classList.toggle('on',j===k2);ink(film[k2]);}
-        if(c!==chapter){chapter=c;chapEl.textContent=c;chapEl.style.animation='none';void chapEl.offsetWidth;chapEl.style.animation='';}
         shown=m;
       }
       // Ink: every colour field is deep enough for white type on dark patches.
@@ -73,13 +69,13 @@
     <h3>Now<small><span class="count">2</span> in progress</small></h3>
     <ol class="tasks">
       <li class="now"><i class="tick"></i><div><b>Pre-Calculus 12 at LECSS</b><span class="d">Month 2 of 10, online, Section 53. The one gap between me and SFU. Aiming for an A.</span></div><span class="due">to Jun 23, 2027</span></li>
+      <li class="now"><i class="tick"></i><div><b>StudentAid BC, with disability status</b><span class="d">Grants cover most KPU tuition; 3 classes counts as full-time with disability status. Account created and disability form sent to my psychologist (Nov 5). Registered at KPU Nov 19, so the full-time application is next.</span></div><span class="due">Before Jan 2027</span></li>
     </ol>
   </div>
 
   <div class="sec">
     <h3>Next<small>Through 2027</small></h3>
     <ol class="tasks">
-      <li><i class="tick"></i><div><b>StudentAid BC, with disability status</b><span class="d">Grants cover most KPU tuition; 3 classes counts as full-time with disability status. Account created and disability form sent to my psychologist (Nov 5). Full application after registering.</span></div><span class="due">Before Jan 2027</span></li>
       <li><i class="tick"></i><div><b>Last no-penalty drop at KPU</b></div><span class="due">Tue Jan 5, 2027</span></li>
       <li><i class="tick"></i><div><b>KPU classes start</b><span class="d">Writing, business math, intro business. One class a day at Langley, Tue/Wed/Thu. First class Wed Jan 6.</span></div><span class="due">Wed Jan 6, 2027</span></li>
       <li><i class="tick"></i><div><b>Pay KPU fees</b></div><span class="due">Thu Jan 21, 2027</span></li>
@@ -165,9 +161,10 @@
     <div class="scroll"><table>
       <thead><tr><th>Course</th><th>When</th><th class="n">CRN</th></tr></thead>
       <tr><td><strong>BUQU 1130</strong> Business Mathematics<br><span class="note">The math of money: interest, loans, annuities, mortgages, break-even.</span></td><td>Tue 1:00–3:50pm · exam Tue Apr 20</td><td class="n">17131</td></tr>
-      <tr><td><strong>ENGL 1100</strong> University Writing<br><span class="note">Critical reading, analysis, a research paper. The writing credit every degree asks for.</span></td><td>Wed 10:00am–12:50pm</td><td class="n">17343</td></tr>
+      <tr><td><strong>ENGL 1100</strong> University Writing<br><span class="note">Critical reading, analysis, a research paper. The writing credit every degree asks for.</span></td><td>Wed 10:00am–12:50pm · exam Wed Apr 21</td><td class="n">17343</td></tr>
       <tr><td><strong>BUSI 1110</strong> Fundamentals of Business in Canada<br><span class="note">How businesses run: marketing, finance, management, operations. The marketing intro this term.</span></td><td>Thu 4:00–6:50pm · exam Thu Apr 22</td><td class="n">10283</td></tr>
     </table></div>
+    <p><a href="kpu-spring-2027.ics">Add the classes, exams and deadlines to your calendar</a> (.ics).</p>
     <p class="note">Not this term: programming and calculus. Every CPSC, INFO and MATH section in Spring 2027 is at Surrey or Richmond; Pre-Calc stays at LECSS. Business math is the math this term; business stats (BUQU 1230) and communication (CMNS 1140) wait for a later term. MRKT 1199 (marketing) runs only on Zoom or at Surrey/Richmond, so BUSI 1110 covers marketing basics instead. Grades here count toward the SFU application — a full year at KPU (~30 credits) puts you past 24 transferable credits, so SFU reads it as a transfer application. The KPU GPA is what gets you in.</p>
   </div>
 </section>
@@ -350,16 +347,6 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
   document.querySelectorAll('.part').forEach(function(el){ spy.observe(el); });
 
-  var yearEl = document.getElementById('year');
-  if (yearEl && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-    var ticking = false;
-    addEventListener('scroll', function(){
-      if (!ticking) {
-        requestAnimationFrame(function(){ yearEl.style.transform = 'translateY(' + (scrollY * 0.1) + 'px)'; ticking = false; });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
 })();
 </script>
 </body>

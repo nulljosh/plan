@@ -48,7 +48,7 @@ a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--p
 
 /* Hero: the ten-year time-lapse */
 .hero{position:relative;min-height:calc(100dvh - 56px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--sp-8) var(--sp-5);overflow:hidden;scroll-snap-align:start;--ink:var(--color-text);--paper:var(--color-bg);color:var(--ink);transition:color .6s}
-.hero > *:not(.year):not(.film){position:relative;z-index:1}
+.hero > *:not(.film){position:relative;z-index:1}
 .film{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--color-bg2)}
 .film i{position:absolute;inset:0;opacity:0;background:var(--c)}
 .film i.on{opacity:1}
@@ -58,7 +58,6 @@ a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--p
 .f-dev{--c:#2B2D7A}
 .f-eng{--c:#0C4A8A}
 .f-gastown{--c:#2D3A6B}
-.year{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;font-family:var(--display);font-size:clamp(9rem,42vw,26rem);font-weight:700;letter-spacing:-.06em;line-height:1;color:var(--ink);opacity:.08;pointer-events:none;user-select:none}
 .hero .kicker,.hero .lede{background:var(--paper);color:var(--ink);display:inline-block;padding:.35em .7em;border-radius:var(--r-sq);transition:background .6s,color .6s}
 .hero .kicker{font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
 .hero h1{margin:var(--sp-4) auto 0;max-width:14ch;font-family:var(--display);font-size:clamp(44px,7.4vw,108px);font-weight:700;letter-spacing:-.04em;line-height:.95;color:var(--ink);text-wrap:balance}
