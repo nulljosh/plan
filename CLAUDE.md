@@ -16,8 +16,8 @@ Dropped, don't bring back: Capilano paralegal, UVic, KPU MATQ, the old SFU → w
 - No back-to-back classes; one class a day is the target.
 
 KPU Spring 2027: the only plan in KPU Plan Ahead is "Spring 2027 Langley" (preferred):
-ENGL 1100 (13506, Mon 10–12:50), BUQU 1130 (17131, Tue 1–3:50), BUSI 1110 (10283, Thu 4–6:50).
-9 credits, one class a day — no back-to-back classes (Joshua's call). Registration Thu Nov 19 2026 (KPU-assigned time; term opened Nov 9).
+REGISTERED Nov 19 2026: BUQU 1130 (17131, Tue 1–3:50), ENGL 1100 L15 (17343, Wed 10–12:50; Mon L12 13506 was full), BUSI 1110 (10283, Thu 4–6:50).
+9 credits, one class a day — no back-to-back classes (Joshua's call).
 Deferred: BUQU 1230 (stats), CMNS 1140 (communication).
 Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisit for Fall.
 
@@ -34,19 +34,8 @@ Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisi
   update `#elapsed[data-next]` in the hero.
 - Numbers are cited; sources live in the footer drawer.
 
-## Next session: register at KPU (Thu Nov 19 2026)
-Paste this to Claude on Nov 19:
-
-> Registration for KPU Spring 2027 opened today. Open myKPU in Safari (I'll log in), go to
-> Register for Classes → Spring 2027 → Plans, load "Spring 2027 Langley", Add All, and show me
-> the summary before I hit Submit. CRNs: 13506 ENGL 1100, 17131 BUQU 1130,
-> 10283 BUSI 1110. If a section is full, waitlist it and suggest a Langley
-> in-person swap (see KPU rules). Then update the plan: move "Register at KPU" to Done, set the hero
-> `#elapsed[data-next]` to the next task (StudentAid BC), mark the KPU section Registered,
-> commit, push and deploy.
-
 StudentAid BC: account created Nov 5 (SIN check ≤72h); disability status application started, verification form
 sent to the assessing psychologist for signature — upload + submit when it comes back (~6 wks). Full-time
 aid application right after registering; parents add income via the Supporting Users Portal.
 After that: last no-penalty drop Tue Jan 5;
-classes start Wed Jan 6; fees due Thu Jan 21.
+classes start Wed Jan 6 (first class that day); fees due Thu Jan 21.
