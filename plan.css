@@ -58,12 +58,15 @@ a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--p
 .f-dev{--c:#2B2D7A}
 .f-eng{--c:#0C4A8A}
 .f-gastown{--c:#2D3A6B}
-.hero .kicker,.hero .lede{background:var(--paper);color:var(--ink);display:inline-block;padding:.35em .7em;border-radius:var(--r-sq);transition:background .6s,color .6s}
+.hero .kicker,.hero .lede{color:var(--ink);display:inline-block}
+.hero .kicker{opacity:.78}
+.hero .btn-solid{background:#fff;color:#111}.hero .btn-solid:hover{background:rgba(255,255,255,.88)}
+.hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
 .hero .kicker{font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
 .hero h1{margin:var(--sp-4) auto 0;max-width:14ch;font-family:var(--display);font-size:clamp(44px,7.4vw,108px);font-weight:700;letter-spacing:-.04em;line-height:.95;color:var(--ink);text-wrap:balance}
 .hero .cta{display:flex;flex-wrap:wrap;gap:var(--sp-3);justify-content:center;margin-top:var(--sp-6)}
 .hero .lede{margin:var(--sp-5) auto 0;max-width:34rem;font-size:19px;line-height:1.45}
-#elapsed{margin-top:var(--sp-5);color:var(--plan)!important}
+#elapsed{margin-top:var(--sp-5);color:var(--ink)!important}
 #chapter{margin-top:var(--sp-2);animation:fadein .5s ease-out both}
 .chapters{display:flex;gap:6px;margin-top:var(--sp-5)}
 .chapters button{width:34px;height:14px;padding:0;border:0;background:none;cursor:pointer;position:relative}
