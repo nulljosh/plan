@@ -218,7 +218,7 @@ a:hover > .art::before,.glyph:hover .art::before{transform:scale(1.06)}
 /* ── Brand kit page ─────────────────────────────────────────────────────────── */
 .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:var(--sp-3);margin:0;padding:0;list-style:none}
 .swatch{border:1px solid var(--line);border-radius:var(--r-sq);overflow:hidden;background:var(--color-bg2)}
-.swatch i{display:block;height:72px;background:var(--c)}
+.swatch i{display:block;height:72px;background:var(--c,var(--ch))}
 .swatch b{display:block;padding:var(--sp-2) var(--sp-3) 0;font-size:13px;font-weight:600}
 .swatch code{display:block;padding:0 var(--sp-3) var(--sp-3);font-family:var(--font-code);font-size:12px;color:var(--muted)}
 .marks{display:flex;flex-wrap:wrap;gap:var(--sp-5);align-items:end}

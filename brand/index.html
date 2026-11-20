@@ -22,7 +22,7 @@
 
 <section class="part" id="top">
   <p class="label">Plan · Brand kit</p>
-  <h1 class="part-title">One page, one mark, one blue.</h1>
+  <h1 class="part-title">One page, one mark, seven chapter colours.</h1>
   <p class="note">Plan is a Jaybulb landing like Talli or Kernel: the fleet tokens from <a href="https://jaybulb.com/tokens.css">jaybulb.com/tokens.css</a> (dark mode, type), overridden to plain white and off-white, then <a href="../plan.css">plan.css</a> on top. Everything below is rendered from that one stylesheet.</p>
 </section>
 
@@ -56,6 +56,19 @@
       <li class="swatch" style="--c:var(--color-hairline)"><i></i><b>Hairline</b><code>--color-hairline</code></li>
       <li class="swatch" style="--c:var(--bulb)"><i></i><b>Bulb</b><code>--bulb #FFCA30</code></li>
     </ul>
+  </div>
+  <div class="sec">
+    <h3>Chapters<small>One colour per stop</small></h3>
+    <ul class="swatches">
+      <li class="swatch c-lecss"><i></i><b>LECSS</b><code>--ch-lecss #1B3A6B</code></li>
+      <li class="swatch c-kpu"><i></i><b>KPU</b><code>--ch-kpu #0F5F6B</code></li>
+      <li class="swatch c-sfu"><i></i><b>SFU</b><code>--ch-sfu #8C1526</code></li>
+      <li class="swatch c-beedie"><i></i><b>Beedie</b><code>--ch-beedie #1F5E45</code></li>
+      <li class="swatch c-dev"><i></i><b>Shipping</b><code>--ch-dev #2B2D7A</code></li>
+      <li class="swatch c-ubc"><i></i><b>UBC</b><code>--ch-ubc #0C4A8A</code></li>
+      <li class="swatch c-gastown"><i></i><b>Gastown</b><code>--ch-gastown #3A3550</code></li>
+    </ul>
+    <p class="note">Deep and cool, flat, never gradients. They fill the hero (one per chapter), rule the timeline rows and the Up next card, and tint the glyph tiles. White text passes AA on all seven. Plan blue stays the only UI accent.</p>
     <p class="note">One accent. Blue marks what's live: the counter, the active nav item, status chips, link underlines, the picked card. Surfaces are white and off-white only. Bulb yellow is Jaybulb's, and only shows up as the footer rule and text selection.</p>
   </div>
 </section>
@@ -91,14 +104,14 @@
   <h2 class="part-title">Glyphs</h2>
   <div class="sec">
     <h3>Six chapters<small>Scanlines + dither</small></h3>
-    <p>One glyph per chapter. Each solid SVG masks a layer of 1.5px Plan-art scanlines over a grainy Plan-blue tile, and a halftone dot screen fades in from one corner. After the Talli landing bands.</p>
+    <p>One glyph per chapter. Each solid SVG masks a layer of 1.5px scanlines over a grainy tile in its chapter colour, and a halftone dot screen fades in from one corner. After the Talli landing bands.</p>
     <ol class="glyphs">
-      <li><figure class="glyph"><div class="art g-precalc"></div><figcaption>Pre-Calc<span>Parabola</span></figcaption></figure></li>
-      <li><figure class="glyph"><div class="art g-kpu"></div><figcaption>KPU<span>Rocket</span></figcaption></figure></li>
-      <li><figure class="glyph"><div class="art g-sfu"></div><figcaption>SFU<span>Burnaby Mtn</span></figcaption></figure></li>
-      <li><figure class="glyph"><div class="art g-beedie"></div><figcaption>Beedie<span>Rising chart</span></figcaption></figure></li>
-      <li><figure class="glyph"><div class="art g-ubc"></div><figcaption>UBC<span>Bridge</span></figcaption></figure></li>
-      <li><figure class="glyph"><div class="art g-gastown"></div><figcaption>Gastown<span>Steam clock</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-precalc c-lecss"></div><figcaption>Pre-Calc<span>Parabola</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-kpu c-kpu"></div><figcaption>KPU<span>Rocket</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-sfu c-sfu"></div><figcaption>SFU<span>Burnaby Mtn</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-beedie c-beedie"></div><figcaption>Beedie<span>Rising chart</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-ubc c-ubc"></div><figcaption>UBC<span>Bridge</span></figcaption></figure></li>
+      <li><figure class="glyph"><div class="art g-gastown c-gastown"></div><figcaption>Gastown<span>Steam clock</span></figcaption></figure></li>
     </ol>
     <p class="note">Raw SVGs live in <code>brand/glyphs/</code>: <a href="glyphs/precalc.svg">precalc</a> · <a href="glyphs/kpu.svg">kpu</a> · <a href="glyphs/sfu.svg">sfu</a> · <a href="glyphs/beedie.svg">beedie</a> · <a href="glyphs/ubc.svg">ubc</a> · <a href="glyphs/gastown.svg">gastown</a>. Black on transparent, 100×100.</p>
   </div>
@@ -112,10 +125,19 @@
     <p class="label">Label · 13px caps</p>
   </div>
   <div class="sec">
+    <h3>Up next</h3>
+    <div class="upnext c-kpu">
+      <p class="label">Course · title</p>
+      <p class="when-big">Wed Jan 6, 10:00am</p>
+      <p class="where">Place · person · end time</p>
+      <p class="count-down">In 47 days</p>
+    </div>
+  </div>
+  <div class="sec">
     <h3>Task list</h3>
     <ol class="tasks">
       <li class="done"><i class="tick"></i><div><b>Done</b><span class="d">Filled tick.</span></div><span class="due">Nov 5</span></li>
-      <li class="now"><i class="tick"></i><div><b>Now</b><span class="d">Blue square, blue date.</span></div><span class="due">Mon Nov 9</span></li>
+      <li class="now"><i class="tick"></i><div><b>Now</b><span class="d">Blue square, blue date.</span></div><span class="due">Thu Nov 19</span></li>
       <li><i class="tick"></i><div><b>Next</b><span class="d">Empty tick.</span></div><span class="due">Jan 2027</span></li>
     </ol>
   </div>
@@ -138,7 +160,8 @@
   <div class="sec">
     <h3>Keep it</h3>
     <ul class="rules">
-      <li><b>One accent.</b> Plan blue for what's live; everything else is ink on paper.</li>
+      <li><b>One accent.</b> Plan blue for what's live; chapter colours only mark where on the plan something sits.</li>
+      <li><b>Flat colour.</b> No photos, no gradients, no animated backgrounds.</li>
       <li><b>Square corners.</b> 2px on buttons, cards and tiles; only the app icon rounds.</li>
       <li><b>Caps for labels only.</b> Headings stay sentence case.</li>
       <li><b>Numbers are cited.</b> A figure on the plan has a source in the footer drawer.</li>
