@@ -252,3 +252,14 @@ a:hover > .art::before,.glyph:hover .art::before{transform:scale(1.06)}
 /* Glyph tiles take their chapter colour instead of one blue */
 .art.c-lecss,.art.c-kpu,.art.c-sfu,.art.c-beedie,.art.c-dev,.art.c-ubc,.art.c-gastown{background:var(--grain),var(--ch)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) #timeline td.when::before,:root:not([data-theme="light"]) .upnext::before{filter:brightness(1.6) saturate(1.1)}}
+
+/* ── Stat tiles (Money) ── */
+.sec .stats{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:var(--sp-3)}
+.sec .stats li{margin:0;padding:var(--sp-4);background:var(--color-bg2);border:1px solid var(--line);border-radius:var(--r-sq)}
+.stat b{display:block;font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-.02em;color:var(--color-text);font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:14px;color:var(--muted)}
+.sec .stats .total{grid-column:1/-1;border-color:var(--plan);box-shadow:inset 3px 0 0 var(--plan)}
+.stat.total b{font-size:40px}
+/* ── Progress bar ── */
+.bar{display:block;height:4px;margin-top:var(--sp-2);background:var(--line);border-radius:2px;overflow:hidden;max-width:20rem}
+.bar i{display:block;height:100%;width:calc(var(--p,0)*100%);background:var(--plan)}
