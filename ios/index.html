@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan · iOS blueprint</title>
+<meta name="description" content="Blueprint for a Plan iPhone app: four screens, a Lock Screen widget, the SwiftUI component map and the data model. A mockup, not an app.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="../icon.svg">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="preload" href="../fonts/PlanSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../plan.css">
+<link rel="stylesheet" href="ios.css">
+</head>
+<body>
+<header class="nav" aria-label="Site"><div class="wrap">
+  <a class="nav-brand" href="../"><img src="../icon.svg" alt="">Plan</a>
+  <nav class="nav-links" aria-label="Sections"><a href="#screens">Screens</a><a href="#structure">Structure</a><a href="#components">Components</a><a href="#data">Data</a><a href="#scope">Scope</a></nav>
+  <a class="btn btn-solid" href="../">Back to the plan</a>
+</div></header>
+
+<main class="wrap">
+
+<section class="part" id="top">
+  <p class="label">Plan · iOS blueprint</p>
+  <h1 class="part-title">The plan, in your pocket.</h1>
+  <p class="note">A blueprint, not an app. It maps plan.jaybulb.com to four iPhone screens and one widget, so it can be built later without guessing. Nothing here is built.</p>
+</section>
+
+<section class="part" id="screens">
+  <h2 class="part-title">Screens</h2>
+  <div class="phones">
+
+    <figure class="phone"><div class="screen">
+      <div class="s-cap">Thursday, Nov 20</div>
+      <div class="s-title">Today</div>
+      <div class="s-card c-kpu"><span class="s-cap">Up next · ENGL 1100</span><b>Wed Jan 6, 10:00am</b>KPU Langley, East 2590<br><span class="s-cap">In 47 days</span></div>
+      <div class="s-cap">Now</div>
+      <div class="s-row now"><i></i><span>Pre-Calc 12 at LECSS<div class="s-bar"><i style="--p:26%"></i></div></span><em>Jun 23</em></div>
+      <div class="s-row now"><i></i><span>StudentAid BC</span><em>Jan</em></div>
+      <div class="s-cap">Next</div>
+      <div class="s-row"><i></i><span>Last no-penalty drop</span><em>Jan 5</em></div>
+      <div class="s-row"><i></i><span>Classes start</span><em>Jan 6</em></div>
+      <div class="s-row"><i></i><span>Pay KPU fees</span><em>Jan 21</em></div>
+      <div class="s-tabs"><span class="on">Today</span><span>Plan</span><span>Money</span><span>Outlook</span></div>
+    </div><figcaption>Today<span>Up next card, then Now and Next</span></figcaption></figure>
+
+    <figure class="phone"><div class="screen">
+      <div class="s-hero"><div class="s-cap">Month 2 of 120</div><div class="s-title">Pre-Calc to UBC.</div></div>
+      <div class="s-card c-lecss"><span class="s-cap">2026–27</span><b>LECSS</b>Pre-Calculus 12</div>
+      <div class="s-card c-kpu"><span class="s-cap">2027</span><b>KPU</b>A year at Langley</div>
+      <div class="s-card c-sfu"><span class="s-cap">2028–31</span><b>SFU</b>Computing Science</div>
+      <div class="s-card c-beedie"><span class="s-cap">2030</span><b>Beedie</b>Business minor</div>
+      <div class="s-card c-ubc"><span class="s-cap">2031 →</span><b>UBC</b>Engineering, grad work</div>
+      <div class="s-tabs"><span>Today</span><span class="on">Plan</span><span>Money</span><span>Outlook</span></div>
+    </div><figcaption>Plan<span>Chapter hero, then the timeline</span></figcaption></figure>
+
+    <figure class="phone"><div class="screen">
+      <div class="s-title">Money</div>
+      <div class="s-card"><span class="s-cap">A month, all in</span><b>~$1,740</b></div>
+      <div class="s-tiles"><div><b>$1,483</b>PWD</div><div><b>$204</b>CDB</div><div><b>$52</b>Transit</div><div><b>$2,800</b>CSG-D / yr</div></div>
+      <div class="s-cap">Expenses · at home</div>
+      <div class="s-row"><span>Rent</span><em>$0–400</em></div>
+      <div class="s-row"><span>Food</span><em>$300–400</em></div>
+      <div class="s-row"><span>Phone</span><em>$60–100</em></div>
+      <div class="s-row"><span><b>Total</b></span><em>~$500–1,150</em></div>
+      <div class="s-tabs"><span>Today</span><span>Plan</span><span class="on">Money</span><span>Outlook</span></div>
+    </div><figcaption>Money<span>Stat tiles and the expense table</span></figcaption></figure>
+
+    <figure class="phone"><div class="screen">
+      <div class="s-title">Outlook</div>
+      <div class="s-cap">Net worth · years since grad</div>
+      <svg class="s-chart" viewBox="0 0 200 90" aria-hidden="true"><path d="M2 2V88H198" fill="none" stroke="currentColor" stroke-opacity=".5"/><path d="M4 86C60 82 110 70 150 40S190 8 196 4" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+      <div class="s-row"><span>Save</span><em>33%</em></div>
+      <div class="s-row"><span>Return</span><em>6% / yr</em></div>
+      <div class="s-card"><b>$1M in year 17</b>Age 48, renting in Kits</div>
+      <div class="s-row"><span>Entry</span><em>~$90k</em></div>
+      <div class="s-row"><span>Senior</span><em>~$165k</em></div>
+      <div class="s-tabs"><span>Today</span><span>Plan</span><span>Money</span><span class="on">Outlook</span></div>
+    </div><figcaption>Outlook<span>Chart with two sliders, then salaries</span></figcaption></figure>
+
+    <figure class="phone"><div class="screen s-lock">
+      <div class="s-cap">Thursday, November 20</div>
+      <div class="clock">9:41</div>
+      <div class="s-widget"><span class="s-cap">Plan · up next</span><br><b>ENGL 1100 · 47 days</b><br>Wed Jan 6, 10:00am</div>
+    </div><figcaption>Lock Screen widget<span>Next event and countdown</span></figcaption></figure>
+
+  </div>
+</section>
+
+<section class="part" id="structure">
+  <h2 class="part-title">Structure</h2>
+  <div class="sec">
+    <h3>Navigation</h3>
+    <p>A <code>TabView</code> with four tabs, matching the web nav: Today, Plan, Money, Outlook. Each tab is a <code>NavigationStack</code> with a large title. Sources sit behind an info button on each screen, not in a tab.</p>
+  </div>
+  <div class="sec">
+    <h3>Look</h3>
+    <ul>
+      <li>Same rules as the web: white and off-white surfaces, one accent <code>#2F6FB0</code>, seven flat chapter colours, no gradients or photos.</li>
+      <li>Square 2px corners on cards; only the app icon and the system tab bar round.</li>
+      <li>Standard system materials (tab bar, nav bar). Glass only where iOS puts it, never on content.</li>
+      <li>Dynamic Type, Dark Mode and Reduce Motion from day one.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="part" id="components">
+  <h2 class="part-title">Components</h2>
+  <div class="sec">
+    <h3>Web to SwiftUI</h3>
+    <table class="spec">
+      <thead><tr><th>Web</th><th>SwiftUI</th></tr></thead>
+      <tr><td>Up next card</td><td><code>UpNextCard</code>: a <code>VStack</code> with a 4pt chapter rule; countdown from <code>Text(date, style: .relative)</code>.</td></tr>
+      <tr><td>Task list</td><td><code>List</code> sections Now / Next / Later / Done; the tick is a square <code>Image</code>; swipe to mark done.</td></tr>
+      <tr><td>Progress bar</td><td><code>ProgressView(value:)</code> with a flat tint, from start and end dates.</td></tr>
+      <tr><td>Timeline</td><td><code>ScrollView</code> of chapter rows, with the chapter colour as a leading rule.</td></tr>
+      <tr><td>Hero time-lapse</td><td><code>TimelineView</code> stepping the chapter colours; static when Reduce Motion is on.</td></tr>
+      <tr><td>Stat tiles</td><td><code>Grid</code>, two columns.</td></tr>
+      <tr><td>Net worth chart</td><td>Swift Charts <code>LineMark</code>, two <code>Slider</code>s, <code>chartOverlay</code> for scrubbing.</td></tr>
+      <tr><td>Widget</td><td>WidgetKit, <code>.accessoryRectangular</code> + <code>.systemSmall</code>.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="part" id="data">
+  <h2 class="part-title">Data</h2>
+  <div class="sec">
+    <h3>One JSON file</h3>
+    <p>The app reads a <code>plan.json</code> served next to the page, so the web and the app never disagree. Cached offline; refreshed on launch.</p>
+<pre><code>{
+  "chapters": [{ "id": "kpu", "from": "2027-01", "title": "KPU", "colour": "#0F5F6B" }],
+  "upNext":   { "title": "ENGL 1100", "at": "2027-01-06T10:00", "where": "East 2590" },
+  "tasks":    [{ "title": "Pay KPU fees", "due": "2027-01-21", "state": "next" }],
+  "money":    { "monthly": 1740, "lines": [{ "label": "PWD", "amount": 1483 }] },
+  "sources":  [{ "label": "KPU dates", "url": "https://www.kpu.ca/registration/dates" }]
+}</code></pre>
+  </div>
+  <div class="sec">
+    <h3>Calendar</h3>
+    <p>Classes and deadlines go straight into Calendar through EventKit, with one &ldquo;Add to Calendar&rdquo; prompt the first time. No .ics files on the page.</p>
+  </div>
+</section>
+
+<section class="part" id="scope">
+  <h2 class="part-title">Scope</h2>
+  <div class="sec">
+    <h3>In v1</h3>
+    <ul><li>The four tabs and the widget above.</li><li>Read-only data from <code>plan.json</code>.</li><li>A local notification the day before each deadline.</li></ul>
+  </div>
+  <div class="sec">
+    <h3>Not now</h3>
+    <ul><li>Editing the plan in the app; the page stays the source.</li><li>Accounts, sync and an iPad layout.</li><li>Building any of this. This page is the blueprint.</li></ul>
+  </div>
+</section>
+
+</main>
+<script src="../scroll.js" defer></script>
+</body>
+</html>

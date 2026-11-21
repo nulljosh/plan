@@ -25,6 +25,9 @@ Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisi
 - `index.html` — markup + three small scripts (hero time-lapse, chart, nav spy). No inline styles.
 - `plan.css` — the design system, loaded after `jaybulb.com/tokens.css`. `brand/` renders it.
 - `brand/glyphs/*.svg` — chapter glyphs, black on transparent, used as CSS masks.
+- `scroll.js` — magnetic scroll: eased anchor glides + pull to a nearby section edge when scrolling stops. Replaces CSS scroll-snap.
+- `ios/` — iOS app blueprint (mockups + spec). Do not build the app.
+- `calendar/*.ics` — repo only (in .assetsignore), never linked or served. Joshua imports them on his iMac.
 - `fonts/PlanSans.woff2` — Inter v4.1, renamed, ss03 + cv05 frozen, Latin subset.
 
 ## Rules

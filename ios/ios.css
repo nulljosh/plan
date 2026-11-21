@@ -1,0 +1,37 @@
+/* iOS blueprint: phone frames drawn in CSS. Wireframes only, no app. */
+.phones{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:var(--sp-6) 20px;margin-top:var(--sp-5)}
+@media(max-width:520px){.phones{grid-template-columns:minmax(0,280px);justify-content:center}}
+.phone{margin:0}
+.phone .screen{position:relative;aspect-ratio:393/852;border:2px solid var(--color-text);border-radius:38px;padding:44px 14px 64px;background:var(--color-bg);overflow:hidden;display:flex;flex-direction:column;gap:8px;font-size:11px;line-height:1.35}
+.phone .screen::before{content:"";position:absolute;top:10px;left:50%;width:84px;height:24px;margin-left:-42px;border-radius:12px;background:#000;box-shadow:0 0 0 1px var(--line)}
+.phone figcaption{margin-top:var(--sp-3);font-family:var(--display);font-size:13px;font-weight:600}
+.phone figcaption span{display:block;font-weight:400;color:var(--muted)}
+.s-title{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em;margin:4px 0 2px}
+.s-cap{font-family:var(--display);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.s-card{position:relative;border:1px solid var(--line);background:var(--color-bg2);border-radius:var(--r-sq);padding:8px 8px 8px 12px}
+.s-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ch,var(--plan))}
+.s-card b{display:block;font-family:var(--display);font-size:15px;letter-spacing:-.01em}
+.s-row{display:flex;justify-content:space-between;gap:6px;padding:5px 0;border-bottom:1px solid var(--line)}
+.s-row i{flex:none;width:10px;height:10px;margin-top:2px;border:1.5px solid var(--muted);border-radius:var(--r-sq)}
+.s-row.now i{border-color:var(--plan);background:var(--plan-soft)}
+.s-row.done i{background:var(--color-text);border-color:var(--color-text)}
+.s-row span{flex:1}.s-row em{font-style:normal;color:var(--muted);white-space:nowrap}
+.s-bar{height:3px;background:var(--line)}.s-bar i{display:block;height:100%;width:var(--p);background:var(--plan)}
+.s-tiles{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.s-tiles div{border:1px solid var(--line);padding:6px}.s-tiles b{display:block;font-family:var(--display);font-size:15px}
+.s-chart{display:block;width:100%;height:90px;color:var(--plan)}
+.s-tabs{position:absolute;left:12px;right:12px;bottom:14px;height:40px;border:1px solid var(--line);border-radius:20px;display:flex;justify-content:space-around;align-items:center;font-size:9px;color:var(--muted);background:color-mix(in srgb,var(--color-bg) 94%,transparent)}
+.s-tabs .on{color:var(--plan);font-weight:600}
+.s-hero{margin:-44px -14px 0;padding:52px 14px 14px;background:var(--ch-lecss);color:#fff}
+.s-hero .s-title{color:#fff}.s-hero .s-cap{color:rgba(255,255,255,.75)}
+.phone .screen.s-lock{background:#1a1d26;color:#fff;align-items:center;text-align:center}
+.s-lock .clock{font-family:var(--display);font-size:56px;font-weight:600;line-height:1;margin-top:20px}
+.s-widget{width:100%;margin-top:14px;border-radius:14px;background:rgba(255,255,255,.14);padding:8px;text-align:left}
+.s-widget .s-cap{color:rgba(255,255,255,.7)}
+.spec td:first-child{white-space:nowrap;font-weight:600;color:var(--color-text);width:11rem}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--color-code-bg);padding:1px 4px;border-radius:var(--r-sq)}
+pre{background:var(--color-code-bg);border:1px solid var(--line);padding:var(--sp-4);overflow-x:auto;font-size:13px;line-height:1.5;margin:0}
+pre code{background:none;padding:0}
+.phone .screen::after{content:"9:41";position:absolute;top:14px;left:26px;font-family:var(--display);font-size:11px;font-weight:600}
+.screen.s-lock::after{content:none}
+.screen:has(.s-hero)::after{color:#fff}
