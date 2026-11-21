@@ -1,7 +1,14 @@
 /* iOS blueprint: phone frames drawn in CSS. Wireframes only, no app. */
-.phones{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:var(--sp-6) 20px;margin-top:var(--sp-5)}
-@media(max-width:520px){.phones{grid-template-columns:minmax(0,280px);justify-content:center}}
-.phone{margin:0}
+/* Mobile first: a swipe carousel that peeks the next phone; a grid from 700px up. */
+.phones{display:flex;gap:16px;margin:var(--sp-5) calc(-1*var(--sp-4)) 0;padding:0 var(--sp-4) var(--sp-3);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--sp-4);overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.phones::-webkit-scrollbar{display:none}
+.phone{margin:0;flex:0 0 min(74vw,270px);scroll-snap-align:start}
+.swipe{display:block;margin-top:var(--sp-3)}
+@media(min-width:700px){
+  .phones{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:var(--sp-6) 20px;margin:var(--sp-5) 0 0;padding:0;overflow:visible}
+  .swipe{display:none}
+}
+@media(max-width:640px){.spec td:first-child{white-space:normal;width:auto}}
 .phone .screen{position:relative;aspect-ratio:393/852;border:2px solid var(--color-text);border-radius:38px;padding:44px 14px 64px;background:var(--color-bg);overflow:hidden;display:flex;flex-direction:column;gap:8px;font-size:11px;line-height:1.35}
 .phone .screen::before{content:"";position:absolute;top:10px;left:50%;width:84px;height:24px;margin-left:-42px;border-radius:12px;background:#000;box-shadow:0 0 0 1px var(--line)}
 .phone figcaption{margin-top:var(--sp-3);font-family:var(--display);font-size:13px;font-weight:600}

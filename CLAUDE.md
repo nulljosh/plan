@@ -31,7 +31,7 @@ Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisi
 - `fonts/PlanSans.woff2` — Inter v4.1, renamed, ss03 + cv05 frozen, Latin subset.
 
 ## Rules
-- White and off-white surfaces only. One UI accent, `--plan #2F6FB0`. Seven flat chapter colours (`--ch-*`) for hero, timeline rules, glyph tiles. No photos, gradients or animated backgrounds. Bulb yellow only as the footer rule.
+- White and off-white surfaces only. One UI accent, `--plan #2F6FB0`. Seven flat chapter colours (`--ch-*`) for hero, timeline rules, glyph tiles. No photos, gradients or animated backgrounds. Bulb yellow only as a 32px tick on the footer rule; footer links underline in hairline grey.
 - Square 2px corners; only the app icon rounds. Caps for labels only.
 - "Where we are" is the task list (Now / Next / Later / Done): move items as they happen, and
   update `#elapsed[data-next]` in the hero.

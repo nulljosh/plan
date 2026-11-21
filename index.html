@@ -314,7 +314,7 @@
       <div><h3>Money</h3><ul><li><a href="https://studentaidbc.ca">StudentAid BC</a></li><li><a href="https://talli.jaybulb.com">Talli</a></li><li><a href="https://epiphany.jaybulb.com">Epiphany</a></li></ul></div>
       <div><h3>Jaybulb</h3><ul><li><a href="https://jaybulb.com">All apps</a></li><li><a href="https://journal.jaybulb.com">Journal</a></li><li><a href="https://github.com/nulljosh">GitHub</a></li><li><a href="https://github.com/nulljosh/plan">This page's source</a></li></ul></div>
     </div>
-    <details class="foot-sources" id="sources"><summary>Sources · 12</summary><ul>
+    <details class="foot-sources" id="sources"><summary>Sources · 11</summary><ul>
       <li>KPU Spring 2027 dates and deadlines — <a href="https://www.kpu.ca/registration/dates">kpu.ca/registration/dates</a>; sections and CRNs from KPU Banner class search, 2026-11-05</li>
       <li>SFU Computing Science admission &amp; tuition — <a href="https://www.sfu.ca/students/calendar/2026/fall/fees-and-regulations/tuition-fees/undergraduate.html">sfu.ca/computing</a></li>
       <li>StudentAid BC disability funding — <a href="https://studentaidbc.ca/explore/grants-scholarships/canada-student-grant-services-and-equipment-students-disabilities">studentaidbc.ca (CSG-DSE)</a></li>
@@ -346,7 +346,7 @@
   var spy = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if (e.isIntersecting) { for (var k in links) links[k].classList.toggle('on', k === e.target.id); } });
   }, { rootMargin: '-40% 0px -55% 0px' });
-  document.querySelectorAll('.part').forEach(function(el){ spy.observe(el); });
+  document.querySelectorAll('.part,.foot-band').forEach(function(el){ spy.observe(el); });
 
 })();
 </script>
@@ -359,5 +359,6 @@ document.querySelectorAll('.bar').forEach(function(b){var a=new Date(b.dataset.f
 b.style.setProperty('--p',p);b.setAttribute('role','progressbar');b.setAttribute('aria-valuenow',Math.round(p*100));b.title=Math.round(p*100)+'% done';});
 </script>
 <script src="scroll.js" defer></script>
+<script src="glyphs.js" defer></script>
 </body>
 </html>
