@@ -37,7 +37,9 @@ Transfer entry, from [SFU's transfer page](https://www.sfu.ca/students/admission
 - **One more** from either list.
 - **GPA:** competitive. Past admits ranged from 2.50 to 3.50 depending on the program.
 - **Quantitative skills:** 60% in a grade 11 or 12 math course, or a C- in a transferable math course.
-- Pre-Calc 12 isn't an admission rule for transfer entry, but calculus and discrete math build on it.
+- Pre-Calc 12 isn't an admission rule for transfer entry, **but it's the prerequisite for the math**:
+  MACM 101 needs Pre-Calc 12 (or SFU MATH 100); MATH 151 needs Pre-Calc 12 with an A (or MATH 100
+  with a B). So learn Pre-Calc somewhere that works, then take discrete math (least algebra).
 - KPU's versions of these courses (MATH 1120, CPSC 1103/1204) run only at Surrey in Spring 2027.
   Check the BC Transfer Guide for a Langley or fully online version (e.g. TRU Open Learning COMP 1230,
   listed as matching SFU CMPT 125) before signing up.
