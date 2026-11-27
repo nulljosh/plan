@@ -41,5 +41,20 @@ Transfer entry, from [SFU's transfer page](https://www.sfu.ca/students/admission
   MACM 101 needs Pre-Calc 12 (or SFU MATH 100); MATH 151 needs Pre-Calc 12 with an A (or MATH 100
   with a B). So learn Pre-Calc somewhere that works, then take discrete math (least algebra).
 - KPU's versions of these courses (MATH 1120, CPSC 1103/1204) run only at Surrey in Spring 2027.
-  Check the BC Transfer Guide for a Langley or fully online version (e.g. TRU Open Learning COMP 1230,
-  listed as matching SFU CMPT 125) before signing up.
+
+## Fully online courses that count at SFU (BC Transfer Guide, checked Nov 27 2026)
+All online and self-paced. TRU = Thompson Rivers Open Learning, AU = Athabasca University.
+Final exams are in person at an approved testing centre (pick one in Langley) or proctored online.
+
+| Need | Online course | Counts at SFU as |
+|---|---|---|
+| Pre-Calc (unlocks the math) | TRU MATH 1001 Pre-Calculus Mathematics | MATH 100 (Q), 3 university credits |
+| Math for admission | TRU MATH 1701 Discrete Mathematics, or AU MATH 309 | MACM 101 |
+| Programming 1 | TRU COMP 1131 Computer Programming I | CMPT 120, 128 or 130 (your choice) |
+| Programming for admission | TRU COMP 1231 Computer Programming II, or AU COMP 206 (C++) | CMPT 125 (+ CMPT 127 exemption) |
+| Calculus (optional third) | TRU MATH 1141 Calculus I, or AU MATH 265 | MATH 151 (needs MATH 100 with a B) |
+
+- TRU lists Pre-Calc 12 as *recommended*, not required. MATH 1701 also accepts Foundations of Math 12
+  (C+, last 2 years) or TRU MATH 0600 (B).
+- Order: MATH 1001 → MATH 1701 → COMP 1131 → COMP 1231. Ask SFU advising whether CMPT 128 (from
+  COMP 1131) and CMPT 125 count as two separate courses toward the three.
