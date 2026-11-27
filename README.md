@@ -13,6 +13,7 @@ My next ten years on one page: [plan.jaybulb.com](https://plan.jaybulb.com).
 
 ## Files
 
+- [`RULES.md`](RULES.md) — how I pick classes (Langley only, one a day)
 - `index.html` — the page
 - `plan.css` — the design system ([brand kit](https://plan.jaybulb.com/brand/))
 - `brand/` — A+ mark and chapter glyphs
