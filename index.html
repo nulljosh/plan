@@ -346,10 +346,16 @@
 
   // Sticky nav: underline the part you're reading.
   var links = {}; document.querySelectorAll('.nav-links a').forEach(function(a){ links[a.hash.slice(1)] = a; });
+  // #kpu sits inside the Plan part; when both are in view, the inner one wins.
+  var seen = {};
   var spy = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if (e.isIntersecting) { for (var k in links) links[k].classList.toggle('on', k === e.target.id); } });
+    entries.forEach(function(e){ seen[e.target.id] = e.isIntersecting; });
+    var on = Object.keys(seen).filter(function(k){ return seen[k]; });
+    if (!on.length) return;
+    var cur = seen.kpu ? 'kpu' : on[0];  // the footer has no id, so it clears every link
+    for (var k in links) links[k].classList.toggle('on', k === cur);
   }, { rootMargin: '-40% 0px -55% 0px' });
-  document.querySelectorAll('.part,.foot-band').forEach(function(el){ spy.observe(el); });
+  document.querySelectorAll('.part,.foot-band,#kpu').forEach(function(el){ spy.observe(el); });
 
 })();
 </script>

@@ -21,5 +21,6 @@
 | Stale status: hero "Next", StudentAid item, Done list | Things (today is always true) | S | done |
 | Mobile nav: links clipped (Outlook cut off), no scroll cue | Linear, keyrate | S | done: all 5 fit at 320–390px, mark only |
 | Finance track: dense course codes → plain words, same two cards | Linear, Things (one idea per section) | S | done |
-| KPU table on phone: 3 tight columns, times wrap 4 lines | Things, Timepage | S | todo |
+| KPU table on phone: 3 tight columns, times wrap 4 lines | Things, Timepage | S | done: stacked rows |
+| Nav underline stuck on Plan while reading KPU | Linear | S | done |
 | Final `apple` skill pass, light + dark + phone | — | S | todo |
