@@ -23,4 +23,4 @@
 | Finance track: dense course codes → plain words, same two cards | Linear, Things (one idea per section) | S | done |
 | KPU table on phone: 3 tight columns, times wrap 4 lines | Things, Timepage | S | done: stacked rows |
 | Nav underline stuck on Plan while reading KPU | Linear | S | done |
-| Final `apple` skill pass, light + dark + phone | — | S | todo |
+| Final `apple` skill pass, light + dark + phone | — | S | done: 44px buttons, 8pt gaps, chart chips 36/44px |
