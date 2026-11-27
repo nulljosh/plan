@@ -13,3 +13,12 @@
 | Brand kit: document chapter palette + new components | — | S | done |
 | Magnetic scroll (eased anchors, edge pull) | Linear, Apple | S | done |
 | iOS blueprint (mockups, no app) | — | M | done |
+
+## Gap matrix, pass 2 (vs plank, keyrate landers + Things/Linear bar — 2026-11-27)
+
+| Gap | Seen in | Size | Status |
+|---|---|---|---|
+| Stale status: hero "Next", StudentAid item, Done list | Things (today is always true) | S | done |
+| Mobile nav: links clipped (Outlook cut off), no scroll cue | Linear, keyrate | S | todo |
+| Finance track: 3 blocks for a 2031 choice → one paragraph | Linear, Things (one idea per section) | S | todo |
+| Final `apple` skill pass, light + dark + phone | — | S | todo |
