@@ -9,11 +9,12 @@ Science, transfer entry, Beedie Business minor (2028–31) → UBC engineering +
 Dropped, don't bring back: Capilano paralegal, UVic, KPU MATQ, the old SFU → work → engineering
 2033–36 timeline.
 
-## KPU rules (non-negotiable)
-- Langley campus only. No Surrey, no Richmond.
-- In person only. No Zoom, no online (sync or async).
-- Not pursuing the BTech IT (its courses run only at Surrey).
-- No back-to-back classes; one class a day is the target.
+## Rules
+**`RULES.md` is the authoritative copy. Read it first.** In short: Langley only, never Surrey or
+Richmond; in class first, and fully online only as a fallback (nothing at Surrey or Richmond,
+exams included); one class a day; fewer classes for a better GPA; no BTech IT.
+SFU CS transfer entry (24+ credits) needs one math + one programming + one more of either, not
+Pre-Calc 12. Details in RULES.md. Keep private struggles (grades in progress) off the public page.
 
 KPU Spring 2027: the only plan in KPU Plan Ahead is "Spring 2027 Langley" (preferred):
 REGISTERED Nov 19 2026: BUQU 1130 (17131, Tue 1–3:50), ENGL 1100 L15 (17343, Wed 10–12:50; Mon L12 13506 was full), BUSI 1110 (10283, Thu 4–6:50).
@@ -30,7 +31,7 @@ Marketing (MRKT 1199) has no Langley in-person section in Spring 2027 — revisi
 - `calendar/*.ics` — repo only (in .assetsignore), never linked or served. Joshua imports them on his iMac.
 - `fonts/PlanSans.woff2` — Inter v4.1, renamed, ss03 + cv05 frozen, Latin subset.
 
-## Rules
+## Design rules
 - White and off-white surfaces only. One UI accent, `--plan #2F6FB0`. Seven flat chapter colours (`--ch-*`) for hero, timeline rules, glyph tiles. No photos, gradients or animated backgrounds. Bulb yellow only as a 32px tick on the footer rule; footer links underline in hairline grey.
 - Square 2px corners; only the app icon rounds. Caps for labels only.
 - "Where we are" is the task list (Now / Next / Later / Done): move items as they happen, and
