@@ -19,6 +19,6 @@
 | Gap | Seen in | Size | Status |
 |---|---|---|---|
 | Stale status: hero "Next", StudentAid item, Done list | Things (today is always true) | S | done |
-| Mobile nav: links clipped (Outlook cut off), no scroll cue | Linear, keyrate | S | todo |
+| Mobile nav: links clipped (Outlook cut off), no scroll cue | Linear, keyrate | S | done: all 5 fit at 320–390px, mark only |
 | Finance track: 3 blocks for a 2031 choice → one paragraph | Linear, Things (one idea per section) | S | todo |
 | Final `apple` skill pass, light + dark + phone | — | S | todo |

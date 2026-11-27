@@ -46,7 +46,8 @@ a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--p
 .nav-links a{font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;padding:var(--sp-2) 0;border-bottom:2px solid transparent;transition:color var(--motion),border-color var(--motion)}
 .nav-links a:hover{color:var(--color-text)}
 .nav-links a.on{color:var(--color-text);border-bottom-color:var(--plan)}
-@media(max-width:640px){.nav .btn{display:none}.nav-links{justify-content:flex-start}}
+@media(max-width:640px){.nav .btn{display:none}.nav .wrap{gap:var(--sp-4)}.nav-brand{font-size:0;gap:0}.nav-links{justify-content:space-between;gap:var(--sp-3);mask:none}.nav-links a{font-size:12px;letter-spacing:.06em}}
+@media(max-width:360px){.nav .wrap{gap:var(--sp-3)}.nav-links{gap:var(--sp-2)}.nav-links a{font-size:11px;letter-spacing:.03em}}
 
 /* Hero: the ten-year time-lapse */
 .hero{position:relative;min-height:calc(100dvh - 56px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--sp-8) var(--sp-5);overflow:hidden;--ink:var(--color-text);--paper:var(--color-bg);color:var(--ink);transition:color .6s}
